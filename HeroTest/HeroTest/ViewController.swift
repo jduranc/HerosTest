@@ -15,13 +15,13 @@ class ViewController: UIViewController {
 		
 		
 		let network = Network()
-		network.get(page: 1) { (pages, error) in
-			print(pages)
-		}
 		
-		network.get(page: 3) { (pages, error) in
-			print(pages)
-		}
+		network.getId(id: 69, handler: { (data, error) in
+			
+			if data != nil {
+				print("data: \(data!)")
+			}
+		})
 	}
 
 

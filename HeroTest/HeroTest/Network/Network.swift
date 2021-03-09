@@ -12,7 +12,7 @@ class Network: NSObject {
 
 	/// List of endpoints for Superhero API
 	struct Endpoint {
-		static let Base = "https://superheroapi.com/api/10156112965520834"
+		static let Base = "https://superheroapi.com/api/2968814630069038"
 		static let Search = "/search"
 	}
 	
@@ -20,6 +20,9 @@ class Network: NSObject {
 	typealias NetworkHandler<T> = ((T?, Error?) -> Void)?
 	/// Data handler for functions on `Network` class, response is returned as `[String: AnyObject]` data.
 	typealias DataHandler = NetworkHandler<[String: AnyObject]>
+	
+	/// Data handler for functions on `Network` class, response is returned as `[[String: AnyObject]]` array data.
+	typealias ArrayDataHandler = NetworkHandler<[[String: AnyObject]]>
 	
 	/// Data hanlder for ids array
 	typealias IDsHandler = NetworkHandler<[Int]>
@@ -37,7 +40,7 @@ class Network: NSObject {
 		- handler: Closure function to handle the response of request. This handler will be called on preset 'dispatchQueue', mainQueue by default.
 		- auth: String with access token/ Authorization bearer, if value is nil its not used (default).
 	*/
-	public func doRequest(endpoint: String, method: String, parameters: [String:AnyObject]?, headers: [String: String]? = nil, handler: DataHandler, auth: String? = nil) {
+	public func doRequest(endpoint: String, method: String, parameters: [String:AnyObject]? = nil, headers: [String: String]? = nil, handler: DataHandler, auth: String? = nil) {
 		guard let url = URL(string: endpoint) else {
 			handler?(nil, NetworkError.InvalidURL(url: endpoint))
 			return
@@ -104,7 +107,9 @@ class Network: NSObject {
 	
 	private func dispatch(handler: DataHandler, data: [String: AnyObject]? = nil, error: Error? = nil) {
 		self.dispatchQueue.async {
+//		DispatchQueue.main.async {
 			handler?(data, error)
 		}
+//		}
 	}
 }

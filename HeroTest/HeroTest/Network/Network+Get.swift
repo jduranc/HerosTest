@@ -15,7 +15,7 @@ extension Network {
 		- page: Int value with current page to search.
 		- handler: Closure function to handle the response of request. This handler will be called on preset 'dispatchQueue', mainQueue by default.
 	*/
-	public func get(page: Int, handler: IDsHandler) {
+	public func getPage(page: Int, handler: IDsHandler) {
 		
 		let idx = page * 10;
 		var pages: [Int] = []
@@ -24,5 +24,64 @@ extension Network {
 		}
 		
 		handler?(pages, nil)
+	}
+	
+	/**
+	Function to retrieve Heros data array for ids passed.
+	- Parameters:
+		- page: Int value with current page to search.
+		- handler: Closure function to handle `ArrayDataHandler` the response of request. This handler will be called on preset 'dispatchQueue', mainQueue by default.
+	*/
+	public func get(page: Int, handler: ArrayDataHandler) {
+		
+		self.getPage(page: page) { (ids, error) in
+			
+			if error != nil {
+				handler?(nil, error)
+				return
+			}
+			guard let ids = ids, ids.count > 0 else {
+				handler?(nil, NetworkError.NoDataResponse)
+				return
+			}
+			
+			var items = [[String: AnyObject]]()
+			var requests = ids.count
+			
+			for id in ids {
+				
+				self.getId(id: id) { (data, error) in
+					//sync the operations with counter and shared array results.
+					Mutex.synced(requests) {
+						//reduce pending requests
+						requests -= 1
+						guard let data = data, data.count > 0 && error == nil else {
+							return
+						}
+						
+						let item = data
+						items.append(item)
+					}
+				}
+			}
+			
+			//wait while pending requests
+			while(requests > 0) {
+				sleep(1)
+			}
+			
+			handler?(items, nil)
+		}
+	}
+	
+	/**
+	Function to retrieve Heros data array for ids passed.
+	- Parameters:
+		- id: Int value for character information
+		- handler: Closure function to handle `DataHandler` the response of request. This handler will be called on preset 'dispatchQueue', mainQueue by default.
+	*/
+	public func getId(id: Int, handler: DataHandler) {
+		let url = Endpoint.Base + "/\(id)"
+		self.doRequest(endpoint: url, method: "GET", handler: handler)
 	}
 }

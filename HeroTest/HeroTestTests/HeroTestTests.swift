@@ -21,22 +21,6 @@ class HeroTestTests: XCTestCase {
     func testExample() throws {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
-		let network = Network()
-		
-		let expectations = XCTestExpectation()
-		var pass = false
-		network.get(page: 1, handler: { (pages, error) in
-			
-			guard let pages = pages else {
-				return
-			}
-			
-			pass = pages.first == 10 && pages.last == 19
-			expectations.fulfill()
-		})
-		
-		wait(for: [expectations], timeout: 3)
-		XCTAssert(pass, "Unable to retrieve page")
     }
 
     func testPerformanceExample() throws {
