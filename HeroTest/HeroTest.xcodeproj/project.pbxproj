@@ -20,6 +20,8 @@
 		F17014FE25F73CC9006F9249 /* HeroViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17014FD25F73CC9006F9249 /* HeroViewModel.swift */; };
 		F170150425F7422A006F9249 /* HeroTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F170150325F7422A006F9249 /* HeroTableViewCell.swift */; };
 		F170150C25F7456B006F9249 /* UIView+Rounded.swift in Sources */ = {isa = PBXBuildFile; fileRef = F170150B25F7456B006F9249 /* UIView+Rounded.swift */; };
+		F170151125F7481D006F9249 /* Network+Download.swift in Sources */ = {isa = PBXBuildFile; fileRef = F170151025F7481D006F9249 /* Network+Download.swift */; };
+		F170151925F74E5A006F9249 /* UIView+Fade.swift in Sources */ = {isa = PBXBuildFile; fileRef = F170151825F74E5A006F9249 /* UIView+Fade.swift */; };
 		F1B08E3125F7189D00AFF72E /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B08E3025F7189C00AFF72E /* Network.swift */; };
 		F1B08E3925F719CC00AFF72E /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B08E3825F719CC00AFF72E /* NetworkError.swift */; };
 		F1B08E3E25F71AF200AFF72E /* Network+Get.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B08E3D25F71AF200AFF72E /* Network+Get.swift */; };
@@ -63,6 +65,8 @@
 		F17014FD25F73CC9006F9249 /* HeroViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroViewModel.swift; sourceTree = "<group>"; };
 		F170150325F7422A006F9249 /* HeroTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroTableViewCell.swift; sourceTree = "<group>"; };
 		F170150B25F7456B006F9249 /* UIView+Rounded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Rounded.swift"; sourceTree = "<group>"; };
+		F170151025F7481D006F9249 /* Network+Download.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Network+Download.swift"; sourceTree = "<group>"; };
+		F170151825F74E5A006F9249 /* UIView+Fade.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Fade.swift"; sourceTree = "<group>"; };
 		F1B08E3025F7189C00AFF72E /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		F1B08E3825F719CC00AFF72E /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		F1B08E3D25F71AF200AFF72E /* Network+Get.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Network+Get.swift"; sourceTree = "<group>"; };
@@ -181,6 +185,7 @@
 			children = (
 				F1B08E3025F7189C00AFF72E /* Network.swift */,
 				F1B08E3D25F71AF200AFF72E /* Network+Get.swift */,
+				F170151025F7481D006F9249 /* Network+Download.swift */,
 				F1B08E3825F719CC00AFF72E /* NetworkError.swift */,
 			);
 			path = Network;
@@ -191,6 +196,7 @@
 			children = (
 				F1E42CC925F73043005CA293 /* Mutex.swift */,
 				F170150B25F7456B006F9249 /* UIView+Rounded.swift */,
+				F170151825F74E5A006F9249 /* UIView+Fade.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -327,6 +333,7 @@
 			files = (
 				F16157A325F711E900AC9AB4 /* ViewController.swift in Sources */,
 				F17014F525F73AFF006F9249 /* HeroModel.swift in Sources */,
+				F170151125F7481D006F9249 /* Network+Download.swift in Sources */,
 				F1B08E3E25F71AF200AFF72E /* Network+Get.swift in Sources */,
 				F1B08E3925F719CC00AFF72E /* NetworkError.swift in Sources */,
 				F17014FE25F73CC9006F9249 /* HeroViewModel.swift in Sources */,
@@ -336,6 +343,7 @@
 				F16157A125F711E900AC9AB4 /* SceneDelegate.swift in Sources */,
 				F170150425F7422A006F9249 /* HeroTableViewCell.swift in Sources */,
 				F170150C25F7456B006F9249 /* UIView+Rounded.swift in Sources */,
+				F170151925F74E5A006F9249 /* UIView+Fade.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

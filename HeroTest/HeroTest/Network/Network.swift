@@ -107,9 +107,7 @@ class Network: NSObject {
 	
 	private func dispatch(handler: DataHandler, data: [String: AnyObject]? = nil, error: Error? = nil) {
 		self.dispatchQueue.async {
-//		DispatchQueue.main.async {
 			handler?(data, error)
 		}
-//		}
 	}
 }

@@ -41,6 +41,13 @@ class HeroViewModel: NSObject {
 		}
 	}
 	
+	/// Hero id
+	var id : Int {
+		get {
+			return self.model.id!
+		}
+	}
+	
 	/// the URL to hero image if model url is valid, otherwise return nil
 	var image : URL? {
 		get {

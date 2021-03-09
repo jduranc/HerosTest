@@ -62,6 +62,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
 		let model = self.data[indexPath.row]
 		
 		if let cell = tableView.dequeueReusableCell(withIdentifier: "HeroCell", for: indexPath) as? HeroTableViewCell {
+			cell.network = self.network
 			cell.model = model
 			return cell
 		}
