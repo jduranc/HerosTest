@@ -51,7 +51,7 @@ class HeroViewModel: NSObject {
 	/// the URL to hero image if model url is valid, otherwise return nil
 	var image : URL? {
 		get {
-			if let path = model.url,
+			if let path = model.image,
 			   let url = URL(string: path) {
 				return url
 			}

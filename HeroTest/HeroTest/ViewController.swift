@@ -29,7 +29,8 @@ class ViewController: UIViewController {
 	}
 	
 	func loadData() {
-		self.network.getTest(handler: { (data, error) in
+//		self.network.getTest(handler: { (data, error) in
+		self.network.getHero(page: 1) { (data, error) in
 			
 			if error != nil && data != nil && data!.count > 0 {
 				return
@@ -40,9 +41,11 @@ class ViewController: UIViewController {
 				let model = HeroViewModel(model: item)
 				self.data.append(model)
 			}
-			
-			self.vwTable.reloadData()
-		})
+		
+			DispatchQueue.main.async {
+				self.vwTable.reloadData()
+			}
+		}
 	}
 }
 

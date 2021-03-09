@@ -9,13 +9,20 @@ import UIKit
 
 /// HeroModel for represnet hero information.
 class HeroModel: NSObject {
-	///current ID on server
+	/// Current ID on server
 	public var id: Int!
+	
 	public var name: String?
+	
 	public var powerstats: [String: Int]?
-//	public var biography: [String: String]?
+	
+	public var biography: [String: String]?
+	
 	public var aliases: [String: String]?
-	public var url: String?
+	
+	public var work: [String: String]?
+	
+	public var image: String?
 	
 	override init() {
 		
@@ -29,15 +36,36 @@ class HeroModel: NSObject {
 	*/
 	init?(data: [String: Any]) {
 		
-		guard let id = data["id"] as? Int,
+		guard let sid = data["id"] as? String,
+			  let id = Int(sid),
 			  let name = data["name"] as? String else {
 			return nil
 		}
 		
 		self.id = id
 		self.name = name
-		self.url = data["url"] as? String
-		self.powerstats = data["powerstats"] as? [String: Int]
-		self.aliases = data["aliases"] as? [String: String]
+		
+		if let values = data["image"] as? [String : String] {
+			self.image = values["url"]
+		}
+		
+		if let values = data["powerstats"] as? [String: String] {
+			self.powerstats = values.mapValues({ (value) -> Int in
+				return Int(value) ?? 0
+			})
+		}
+		
+		if let values = data["biography"] as? [String: AnyObject] {
+			self.biography = [String: String]()
+			for (key, value) in values {
+				if let value = value as? String {
+					self.biography![key] = value
+				}
+				
+				//TODO: extract aliases
+			}
+		}
+		
+		self.work = data["work"] as? [String: String]
 	}
 }

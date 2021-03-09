@@ -52,7 +52,7 @@ extension Network {
 				
 				self.getId(id: id) { (data, error) in
 					//sync the operations with counter and shared array results.
-					Mutex.synced(requests) {
+					Mutex.synced(items) {
 						//reduce pending requests
 						requests -= 1
 						guard let data = data, data.count > 0 && error == nil else {
@@ -93,7 +93,7 @@ extension Network {
 		let batman = HeroModel()
 		batman.id = 69
 		batman.name = "batman"
-		batman.url = "https://www.superherodb.com/pictures2/portraits/10/100/10441.jpg"
+		batman.image = "https://www.superherodb.com/pictures2/portraits/10/100/10441.jpg"
 		
 		let superman = HeroModel()
 		superman.id = 50

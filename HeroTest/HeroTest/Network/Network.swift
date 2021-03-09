@@ -27,8 +27,8 @@ class Network: NSObject {
 	/// Data hanlder for ids array
 	typealias IDsHandler = NetworkHandler<[Int]>
 	
-	/// DispatchQueue where function handlers will be called. `DispatchQueue.main` by default.
-	public var dispatchQueue : DispatchQueue = DispatchQueue.main
+	/// DispatchQueue where function handlers will be called.
+	public var dispatchQueue : DispatchQueue?
 	
 	/**
 	Perform async request to server, the response is handled by handler parameter.
@@ -98,6 +98,7 @@ class Network: NSObject {
 //					//do something with response
 //				}
 				self.dispatch(handler: handler, data: values)
+//				handler?(values, nil)
 			} else {
 				self.dispatch(handler: handler, error: NetworkError.InvalidDataResponse(data: data))
 			}
@@ -106,7 +107,12 @@ class Network: NSObject {
 	}
 	
 	private func dispatch(handler: DataHandler, data: [String: AnyObject]? = nil, error: Error? = nil) {
-		self.dispatchQueue.async {
+		
+		if let queue = self.dispatchQueue {
+			queue.async {
+				handler?(data, error)
+			}
+		} else {
 			handler?(data, error)
 		}
 	}
