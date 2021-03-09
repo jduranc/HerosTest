@@ -84,4 +84,30 @@ extension Network {
 		let url = Endpoint.Base + "/\(id)"
 		self.doRequest(endpoint: url, method: "GET", handler: handler)
 	}
+	
+	
+	/// Data handler for functions on `Network` class, response is returned as `[[String: AnyObject]]` array data.
+	typealias ArrayHeroModelHandler = NetworkHandler<[HeroModel]>
+	
+	public func getTest(handler: ArrayHeroModelHandler) {
+		let batman = HeroModel()
+		batman.id = 69
+		batman.name = "batman"
+		batman.url = "https://www.superherodb.com/pictures2/portraits/10/100/10441.jpg"
+		
+		let superman = HeroModel()
+		superman.id = 50
+		superman.name = "superman"
+		
+		let acuaman = HeroModel()
+		acuaman.id = 100
+		acuaman.name = "acuaman"
+		
+		var results = [HeroModel]()
+		results.append(batman)
+		results.append(superman)
+		results.append(acuaman)
+		
+		handler?(results, nil)
+	}
 }

@@ -16,6 +16,10 @@
 		F16157B625F711EC00AC9AB4 /* HeroTestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16157B525F711EC00AC9AB4 /* HeroTestTests.swift */; };
 		F16157C125F711EC00AC9AB4 /* HeroTestUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16157C025F711EC00AC9AB4 /* HeroTestUITests.swift */; };
 		F17014EB25F73957006F9249 /* NetworkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17014EA25F73957006F9249 /* NetworkTests.swift */; };
+		F17014F525F73AFF006F9249 /* HeroModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17014F425F73AFF006F9249 /* HeroModel.swift */; };
+		F17014FE25F73CC9006F9249 /* HeroViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17014FD25F73CC9006F9249 /* HeroViewModel.swift */; };
+		F170150425F7422A006F9249 /* HeroTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F170150325F7422A006F9249 /* HeroTableViewCell.swift */; };
+		F170150C25F7456B006F9249 /* UIView+Rounded.swift in Sources */ = {isa = PBXBuildFile; fileRef = F170150B25F7456B006F9249 /* UIView+Rounded.swift */; };
 		F1B08E3125F7189D00AFF72E /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B08E3025F7189C00AFF72E /* Network.swift */; };
 		F1B08E3925F719CC00AFF72E /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B08E3825F719CC00AFF72E /* NetworkError.swift */; };
 		F1B08E3E25F71AF200AFF72E /* Network+Get.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B08E3D25F71AF200AFF72E /* Network+Get.swift */; };
@@ -55,6 +59,10 @@
 		F16157C025F711EC00AC9AB4 /* HeroTestUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroTestUITests.swift; sourceTree = "<group>"; };
 		F16157C225F711EC00AC9AB4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F17014EA25F73957006F9249 /* NetworkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkTests.swift; sourceTree = "<group>"; };
+		F17014F425F73AFF006F9249 /* HeroModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroModel.swift; sourceTree = "<group>"; };
+		F17014FD25F73CC9006F9249 /* HeroViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroViewModel.swift; sourceTree = "<group>"; };
+		F170150325F7422A006F9249 /* HeroTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroTableViewCell.swift; sourceTree = "<group>"; };
+		F170150B25F7456B006F9249 /* UIView+Rounded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Rounded.swift"; sourceTree = "<group>"; };
 		F1B08E3025F7189C00AFF72E /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		F1B08E3825F719CC00AFF72E /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		F1B08E3D25F71AF200AFF72E /* Network+Get.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Network+Get.swift"; sourceTree = "<group>"; };
@@ -109,6 +117,9 @@
 		F161579D25F711E900AC9AB4 /* HeroTest */ = {
 			isa = PBXGroup;
 			children = (
+				F170150225F7420C006F9249 /* Controls */,
+				F17014F325F73AF0006F9249 /* ViewModel */,
+				F17014F225F73AE9006F9249 /* Model */,
 				F1E42CC825F7302F005CA293 /* Extensions */,
 				F1B08E2F25F7188D00AFF72E /* Network */,
 				F161579E25F711E900AC9AB4 /* AppDelegate.swift */,
@@ -141,6 +152,30 @@
 			path = HeroTestUITests;
 			sourceTree = "<group>";
 		};
+		F17014F225F73AE9006F9249 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F17014F425F73AFF006F9249 /* HeroModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		F17014F325F73AF0006F9249 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				F17014FD25F73CC9006F9249 /* HeroViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		F170150225F7420C006F9249 /* Controls */ = {
+			isa = PBXGroup;
+			children = (
+				F170150325F7422A006F9249 /* HeroTableViewCell.swift */,
+			);
+			path = Controls;
+			sourceTree = "<group>";
+		};
 		F1B08E2F25F7188D00AFF72E /* Network */ = {
 			isa = PBXGroup;
 			children = (
@@ -155,6 +190,7 @@
 			isa = PBXGroup;
 			children = (
 				F1E42CC925F73043005CA293 /* Mutex.swift */,
+				F170150B25F7456B006F9249 /* UIView+Rounded.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -290,12 +326,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				F16157A325F711E900AC9AB4 /* ViewController.swift in Sources */,
+				F17014F525F73AFF006F9249 /* HeroModel.swift in Sources */,
 				F1B08E3E25F71AF200AFF72E /* Network+Get.swift in Sources */,
 				F1B08E3925F719CC00AFF72E /* NetworkError.swift in Sources */,
+				F17014FE25F73CC9006F9249 /* HeroViewModel.swift in Sources */,
 				F161579F25F711E900AC9AB4 /* AppDelegate.swift in Sources */,
 				F1E42CCA25F73043005CA293 /* Mutex.swift in Sources */,
 				F1B08E3125F7189D00AFF72E /* Network.swift in Sources */,
 				F16157A125F711E900AC9AB4 /* SceneDelegate.swift in Sources */,
+				F170150425F7422A006F9249 /* HeroTableViewCell.swift in Sources */,
+				F170150C25F7456B006F9249 /* UIView+Rounded.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
