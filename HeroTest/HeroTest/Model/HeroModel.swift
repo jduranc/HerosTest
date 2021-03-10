@@ -73,5 +73,7 @@ class HeroModel: NSObject {
 		}
 		
 		self.work = data["work"] as? [String: String]
+		
+		//TODO: read other values
 	}
 }

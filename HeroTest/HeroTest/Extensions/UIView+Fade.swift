@@ -10,7 +10,7 @@ import UIKit
 extension UIView {
 	
 	/**
-	Perform fade out effect to UIView
+	Perform fade out effect to `UIView`
 	- Parameters:
 		- time: duration to disapper
 	*/
@@ -23,7 +23,7 @@ extension UIView {
 	}
 	
 	/**
-	Perform fade out effect to UIView
+	Perform fade out effect to `UIView`
 	- Parameters:
 		- time: duration to appear
 	*/

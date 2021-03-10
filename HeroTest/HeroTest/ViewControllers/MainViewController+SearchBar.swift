@@ -15,10 +15,26 @@ extension MainViewController: UISearchBarDelegate {
 	func configureSearchBar() {
 		self.vwSearch.delegate = self
 		
+		//handle keyboard events
 		NotificationCenter.default.addObserver(self, selector: #selector(onKeyboardShow), name: UIResponder.keyboardWillShowNotification, object: nil)
 		NotificationCenter.default.addObserver(self, selector: #selector(onKeyboardHide), name: UIResponder.keyboardWillHideNotification, object: nil)
 	}
 
+	
+	/**
+	Cancel the search process, remove the search results items and reload table with previous loaded data
+	*/
+	private func cancelSearch() {
+		
+		self.searchItems.removeAll()
+		
+		DispatchQueue.main.async {
+			self.vwTable.reloadData()
+		}
+	}
+	
+	// MARK: - UISearchBarDelegate
+	
 	func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
 		
 		if let text = searchBar.text, !text.isEmpty {
@@ -72,20 +88,12 @@ extension MainViewController: UISearchBarDelegate {
 		}
 	}
 	
-	private func cancelSearch() {
-		
-		self.searchItems.removeAll()
-		
-		DispatchQueue.main.async {
-			self.vwTable.reloadData()
-		}
-	}
-	
 	func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
 		cancelSearch()
 		self.view.endEditing(true)
 	}
-
+	
+	// MARK: - Keyboard events
 	@objc func onKeyboardShow(_ notificaiton: Notification) {
 		if let userInfo = notificaiton.userInfo,
 			let objSize = userInfo[UIResponder.keyboardFrameEndUserInfoKey],

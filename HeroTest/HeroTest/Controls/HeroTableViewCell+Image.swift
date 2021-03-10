@@ -9,10 +9,15 @@ import UIKit
 
 extension HeroTableViewCell {
 	
+	/**
+	Download file from URL and move to local cache files. Local URL is stored in model for next access.
+	- Parameters:
+		- url: URL path to file to download.
+	*/
 	public func downloadImage(url: URL) {
 		
 		let fm = FileManager.init()
-		let dst = fm.urls(for: .documentDirectory, in: .userDomainMask).first!.appendingPathComponent("\(self.model.id).jpg")
+		let dst = fm.urls(for: .cachesDirectory, in: .userDomainMask).first!.appendingPathComponent("\(self.model.id).jpg")
 		//TODO: implement check for already downloaded images
 		
 		//request download the image from the url

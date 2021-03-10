@@ -10,7 +10,7 @@ import UIKit
 extension UIImageView {
 	
 	/**
-	Perform load image from URL, then apply fadein effect
+	Perform load image from `URL`, then apply fadein effect
 	- Parameters:
 		- url: The url of the image.
 		- time: duration to appear, default value 1

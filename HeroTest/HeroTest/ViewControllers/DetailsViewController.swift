@@ -38,6 +38,7 @@ class DetailsViewController: UIViewController {
 		self.btClose.rounded()
 		self.vwFrame.rounded()
 		self.imPicture.contentMode = .scaleAspectFill
+		
 		update()
     }
     

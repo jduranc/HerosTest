@@ -14,6 +14,7 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
 		self.vwTable.delegate 	= self
 	}
 	
+	// MARK: - UITableViewDataSource & UITableViewDelegate
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 		
 		if self.searchItems.count > 0 {
@@ -56,7 +57,7 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
 			}
 		}
 	}
-	
+
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		//hide keyboard
 		self.view.endEditing(true)

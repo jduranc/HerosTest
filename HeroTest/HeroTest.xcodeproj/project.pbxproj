@@ -216,8 +216,8 @@
 				F1B08E3D25F71AF200AFF72E /* Network+Get.swift */,
 				F170151025F7481D006F9249 /* Network+Download.swift */,
 				F1A463BA25F7E7E100D0A6B1 /* Network+Hero.swift */,
-				F1B08E3825F719CC00AFF72E /* NetworkError.swift */,
 				F1A4640325F8620500D0A6B1 /* Network+Search.swift */,
+				F1B08E3825F719CC00AFF72E /* NetworkError.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";

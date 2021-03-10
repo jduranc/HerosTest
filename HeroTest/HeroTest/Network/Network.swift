@@ -92,11 +92,13 @@ class Network: NSObject {
 			
 			if let json = try? JSONSerialization.jsonObject(with: data, options: .fragmentsAllowed),
 			   let values = json as? [String: AnyObject] {
-				
-//				if let content = values["content"] as? String,
+
+// 				//TODO validate response field
+//				if let content = values["response"] as? String,
 //				   let code = values["code"] as? Int {
 //					//do something with response
 //				}
+				
 				self.dispatch(handler: handler, data: values)
 				
 			} else {
