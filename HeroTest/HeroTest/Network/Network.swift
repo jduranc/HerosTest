@@ -98,11 +98,12 @@ class Network: NSObject {
 //					//do something with response
 //				}
 				self.dispatch(handler: handler, data: values)
-//				handler?(values, nil)
+				
 			} else {
 				self.dispatch(handler: handler, error: NetworkError.InvalidDataResponse(data: data))
 			}
 		}
+		
 		task.resume()
 	}
 	

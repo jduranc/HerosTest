@@ -10,9 +10,13 @@ import UIKit
 class ViewController: UIViewController {
 
 	@IBOutlet weak var vwTable: UITableView!
+	@IBOutlet weak var cnsTableBottom: NSLayoutConstraint!
+	@IBOutlet weak var vwActivityIndicator: UIActivityIndicatorView!
 	
 	fileprivate var data = [HeroViewModel]()
 	fileprivate var network = Network()
+	var currentPage = 0
+	var isLoading = true
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -20,30 +24,70 @@ class ViewController: UIViewController {
 		// Do any additional setup after loading the view.
 		self.configureTableView()
 		self.loadData()
-//		self.network.getId(id: 69, handler: { (data, error) in
-//
-//			if data != nil {
-//				print("data: \(data!)")
-//			}
-//		})
 	}
 	
-	func loadData() {
-//		self.network.getTest(handler: { (data, error) in
-		self.network.getHero(page: 1) { (data, error) in
+	func loadData(page: Int = 0) {
+		
+		self.isLoading = true
+		self.currentPage = page
+		self.showActivity(enable: true)
+		
+		DispatchQueue.global(qos: .background).async {
 			
-			if error != nil && data != nil && data!.count > 0 {
-				return
+			self.network.getHero(page: page) { [weak self] (data, error) in
+				
+				guard let self = self else { return }
+				
+				if error != nil && data != nil && data!.count > 0 {
+					self.showAlert(message: "Verifique su conexion a internet.", title: "Error")
+					self.isLoading = false
+					return
+				}
+							
+				//build the new rows indexs
+				var newIdxs = [IndexPath]()
+				for item in data! {
+					let model = HeroViewModel(model: item)
+					self.data.append(model)
+					newIdxs.append(IndexPath(row: self.data.count - 1, section: 0))
+				}
+			
+				DispatchQueue.main.async {
+					self.vwTable.insertRows(at: newIdxs, with: .bottom)
+					self.showActivity(enable: false)
+					self.isLoading = false
+				}
 			}
-			
-			self.data.removeAll()
-			for item in data! {
-				let model = HeroViewModel(model: item)
-				self.data.append(model)
+		}
+	}
+		
+	
+	private func showAlert(message: String, title: String? = nil) {
+		let control = UIAlertController(title: title, message: message, preferredStyle: .alert)
+		control.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+		
+		DispatchQueue.main.async {
+			self.present(control, animated: true, completion: nil)
+		}
+	}
+	
+	private func showActivity(enable: Bool) {
+		
+		DispatchQueue.main.async {
+			var posX : CGFloat = 0.0
+			if enable {
+				posX = -40.0
+				self.vwActivityIndicator.fadeIn(time: 0.1)
+				self.vwActivityIndicator.startAnimating()
+			} else {
+				self.vwActivityIndicator.stopAnimating()
+				self.vwActivityIndicator.fadeOut(time: 0.33)
 			}
 		
-			DispatchQueue.main.async {
-				self.vwTable.reloadData()
+			self.view.setNeedsLayout()
+			self.cnsTableBottom.constant = posX
+			UIView.animate(withDuration: 0.1) {
+				self.view.layoutIfNeeded()
 			}
 		}
 	}
@@ -75,6 +119,12 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
 	
 	func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
 		return 80
+	}
+	
+	func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+		if indexPath.row == self.data.count - 1 && !self.isLoading {
+			self.loadData(page: self.currentPage + 1)
+		}
 	}
 }
 
