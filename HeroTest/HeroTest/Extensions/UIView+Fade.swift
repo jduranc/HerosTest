@@ -8,6 +8,12 @@
 import UIKit
 
 extension UIView {
+	
+	/**
+	Perform fade out effect to UIView
+	- Parameters:
+		- time: duration to disapper
+	*/
 	func fadeOut(time: Double) {
 		DispatchQueue.main.async {
 			UIView.animate(withDuration: time, animations: {
@@ -16,6 +22,11 @@ extension UIView {
 		}
 	}
 	
+	/**
+	Perform fade out effect to UIView
+	- Parameters:
+		- time: duration to appear
+	*/
 	func fadeIn(time: Double) {
 		DispatchQueue.main.async {
 			UIView.animate(withDuration: time, animations: {

@@ -25,22 +25,14 @@ extension HeroTableViewCell {
 				try? fm.removeItem(at: dst)
 				try fm.moveItem(at: url, to: dst)
 				
-				self.updateImage(url: dst)
+				self.model.localImage = dst
+				self.imPicture.load(url: dst)
+				
 			} catch { //let error {
 				//print("downloadImage Error: \(error)")
 			}
 		}
 	}
 	
-	private func updateImage(url: URL) {
-		
-		if let data = try? Data(contentsOf: url),
-		   let image = UIImage(data: data) {
-			
-			DispatchQueue.main.async {
-				self.imPicture.image = image
-				self.imPicture.fadeIn(time: 1)
-			}
-		}
-	}
 }
+

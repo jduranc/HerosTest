@@ -130,5 +130,13 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
 			self.loadData(page: self.currentPage + 1)
 		}
 	}
+	
+	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+		let model = self.data[indexPath.row]
+		let control = DetailsViewController.viewController()
+		control.model = model
+		
+		self.present(control, animated: true, completion: nil)
+	}
 }
 

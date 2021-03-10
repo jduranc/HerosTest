@@ -18,12 +18,14 @@ class HeroTableViewCell: UITableViewCell {
 		didSet {
 			self.lbName.text = model.name
 			
+			//check for local downloaded image
+			if let local = model.localImage {
+				self.imPicture.load(url: local)
 			
-			if let url = model.image {
+			// try to download the remote image
+			} else if let url = model.image {
 				self.imPicture.alpha = 0
 				self.downloadImage(url: url)
-			} else {
-				self.imPicture.alpha = 1
 			}
 		}
 	}
