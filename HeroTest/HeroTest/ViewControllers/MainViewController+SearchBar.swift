@@ -9,13 +9,16 @@ import UIKit
 
 extension MainViewController: UISearchBarDelegate {
 	
+	/**
+	Function configure the search bar control
+	*/
 	func configureSearchBar() {
 		self.vwSearch.delegate = self
 		
 		NotificationCenter.default.addObserver(self, selector: #selector(onKeyboardShow), name: UIResponder.keyboardWillShowNotification, object: nil)
 		NotificationCenter.default.addObserver(self, selector: #selector(onKeyboardHide), name: UIResponder.keyboardWillHideNotification, object: nil)
 	}
-	
+
 	func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
 		
 		if let text = searchBar.text, !text.isEmpty {
@@ -36,19 +39,13 @@ extension MainViewController: UISearchBarDelegate {
 						var networkError = true
 						
 						//if error is no data, do no threat erro like network error
-						if let neterr = error as? NetworkError {
-							switch neterr {
-							case .NoDataResponse:
-								networkError = false
-							default:
-								networkError = true
-							}
+						if let netErr = error as? NetworkError {
+							networkError = (netErr != .NoDataResponse)
 						}
 						
 						if networkError {
 							self.cancelSearch()
 							self.showAlert(message: "Verifique su conexion a internet.", title: "Error")
-							
 							return
 						}
 					}

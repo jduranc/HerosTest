@@ -44,15 +44,23 @@ class MainViewController: UIViewController {
 			
 			self.network.getHero(page: page) { [weak self] (data, error) in
 				
-				guard let self = self else { return }
-				
-				//check for errors or no data received
-				if error != nil && data != nil && data!.count > 0 {
-					self.showAlert(message: "Verifique su conexion a internet.", title: "Error")
-					self.isLoading = false
+				guard let self = self else {
 					return
 				}
-							
+				
+				self.showActivity(visible: false)
+				
+				//check for error
+				if error != nil || data == nil || data?.count == 0 {
+					
+					self.showAlert(message: "Verifique su conexion a internet.", title: "Error") { (action) in
+						if self.data.count == 0 {
+							self.loadData()
+						}
+					}
+					return
+				}
+								
 				//build the new rows indexs
 				var newIdxs = [IndexPath]()
 				for item in data! {
@@ -77,9 +85,9 @@ class MainViewController: UIViewController {
 		- message: display message for the dialog
 		- title: title used for the dialog
 	*/
-	public func showAlert(message: String, title: String? = nil) {
+	public func showAlert(message: String, title: String? = nil, handler: ((UIAlertAction) -> Void)? = nil) {
 		let control = UIAlertController(title: title, message: message, preferredStyle: .alert)
-		control.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+		control.addAction(UIAlertAction(title: "OK", style: .default, handler: handler))
 		
 		DispatchQueue.main.async {
 			self.present(control, animated: true, completion: nil)

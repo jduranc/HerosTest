@@ -8,7 +8,7 @@
 import UIKit
 
 /// Represent the `Network` Error types.
-public enum NetworkError: Error, LocalizedError {
+public enum NetworkError: Error, LocalizedError, Equatable {
 	
 	///returned when the `URL` can't be formed from given string
 	case InvalidURL(url: String)
@@ -46,5 +46,9 @@ public enum NetworkError: Error, LocalizedError {
 //		default:
 //			return "Unknown error"
 		}
+	}
+	
+	public static func == (lhs: NetworkError, rhs: NetworkError) -> Bool {
+		return lhs.errorDescription == rhs.errorDescription
 	}
 }
