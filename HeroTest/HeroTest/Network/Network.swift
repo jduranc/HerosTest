@@ -12,7 +12,7 @@ class Network: NSObject {
 
 	/// List of endpoints for Superhero API
 	struct Endpoint {
-		static let Base = "https://superheroapi.com/api/2968814630069038"
+		static let Base = "https://superheroapi.com/api/10156112965520834"
 		static let Search = "/search"
 	}
 	
