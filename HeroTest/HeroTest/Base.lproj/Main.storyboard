@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Main View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="HeroTest" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="MainViewController" customModule="HeroTest" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -21,21 +21,21 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="778"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="HeroCell" rowHeight="79" id="Qeb-1j-9Hz" customClass="HeroTableViewCell" customModule="HeroTest" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="79"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="HeroCell" rowHeight="100" id="Qeb-1j-9Hz" customClass="HeroTableViewCell" customModule="HeroTest" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Qeb-1j-9Hz" id="kCU-GH-SgE">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="79"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tdk-lD-jfH">
-                                                    <rect key="frame" x="76" y="19" width="318" height="41"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tdk-lD-jfH">
+                                                    <rect key="frame" x="82" y="28" width="312" height="44"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IyY-XB-Btr">
-                                                    <rect key="frame" x="8" y="9.5" width="60" height="60"/>
+                                                    <rect key="frame" x="8" y="20" width="60" height="60"/>
                                                     <subviews>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1g2-Yi-mFb">
                                                             <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
@@ -51,18 +51,38 @@
                                                         <constraint firstAttribute="width" secondItem="IyY-XB-Btr" secondAttribute="height" multiplier="1:1" id="rIk-xT-LJO"/>
                                                     </constraints>
                                                 </view>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="750" text="Fullname" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NXp-mr-Bgy">
+                                                    <rect key="frame" x="82" y="72" width="312" height="16"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="KPs-O2-brn">
+                                                    <rect key="frame" x="362" y="11" width="32" height="32"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="KPs-O2-brn" secondAttribute="height" multiplier="1:1" id="TQg-EH-0Et"/>
+                                                        <constraint firstAttribute="width" constant="32" id="obs-nQ-4Ta"/>
+                                                    </constraints>
+                                                </imageView>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="NXp-mr-Bgy" firstAttribute="trailing" secondItem="tdk-lD-jfH" secondAttribute="trailing" id="1b6-Lo-OZ9"/>
                                                 <constraint firstItem="tdk-lD-jfH" firstAttribute="trailing" secondItem="kCU-GH-SgE" secondAttribute="trailingMargin" id="5gN-5L-TcH"/>
+                                                <constraint firstAttribute="bottom" secondItem="NXp-mr-Bgy" secondAttribute="bottom" constant="12" id="7zh-vR-itZ"/>
+                                                <constraint firstItem="tdk-lD-jfH" firstAttribute="centerY" secondItem="1g2-Yi-mFb" secondAttribute="centerY" id="9Wu-ma-DgR"/>
                                                 <constraint firstItem="IyY-XB-Btr" firstAttribute="leading" secondItem="kCU-GH-SgE" secondAttribute="leading" constant="8" id="T8k-z3-3NK"/>
-                                                <constraint firstItem="tdk-lD-jfH" firstAttribute="leading" secondItem="IyY-XB-Btr" secondAttribute="trailing" constant="8" symbolic="YES" id="THe-R8-iLu"/>
-                                                <constraint firstItem="tdk-lD-jfH" firstAttribute="top" secondItem="kCU-GH-SgE" secondAttribute="topMargin" constant="8" id="VZt-e4-IaE"/>
+                                                <constraint firstItem="tdk-lD-jfH" firstAttribute="leading" secondItem="IyY-XB-Btr" secondAttribute="trailing" constant="14" id="THe-R8-iLu"/>
                                                 <constraint firstItem="IyY-XB-Btr" firstAttribute="centerY" secondItem="kCU-GH-SgE" secondAttribute="centerY" id="bkq-lV-lHO"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="tdk-lD-jfH" secondAttribute="bottom" constant="8" id="nD1-bP-TbA"/>
+                                                <constraint firstItem="NXp-mr-Bgy" firstAttribute="top" secondItem="tdk-lD-jfH" secondAttribute="bottom" id="ikx-ob-0Nn"/>
+                                                <constraint firstItem="NXp-mr-Bgy" firstAttribute="leading" secondItem="tdk-lD-jfH" secondAttribute="leading" id="khY-E6-ya2"/>
+                                                <constraint firstItem="KPs-O2-brn" firstAttribute="trailing" secondItem="kCU-GH-SgE" secondAttribute="trailingMargin" id="tcB-KR-is2"/>
+                                                <constraint firstItem="KPs-O2-brn" firstAttribute="top" secondItem="kCU-GH-SgE" secondAttribute="topMargin" id="uG3-IB-iSy"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="imIcon" destination="KPs-O2-brn" id="3es-ZY-3kq"/>
                                             <outlet property="imPicture" destination="1g2-Yi-mFb" id="KaZ-ii-RnR"/>
+                                            <outlet property="lbFullname" destination="NXp-mr-Bgy" id="kgC-y5-car"/>
                                             <outlet property="lbName" destination="tdk-lD-jfH" id="8UI-Wt-bQg"/>
                                             <outlet property="vwFrame" destination="IyY-XB-Btr" id="XID-OK-p8X"/>
                                         </connections>

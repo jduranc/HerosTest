@@ -10,13 +10,17 @@ import UIKit
 class HeroTableViewCell: UITableViewCell {
 
 	@IBOutlet weak var lbName: UILabel!
+	@IBOutlet weak var lbFullname: UILabel!
 	@IBOutlet weak var imPicture: UIImageView!
 	@IBOutlet weak var vwFrame: UIView!
+	@IBOutlet weak var imIcon: UIImageView!
 	
 	public var network : Network!
 	public var model: HeroViewModel! {
 		didSet {
 			self.lbName.text = model.name
+			self.lbFullname.text = model.fullName
+			self.imIcon.image = model.icon
 			
 			//check for local downloaded image
 			if let local = model.localImage {
