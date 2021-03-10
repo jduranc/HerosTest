@@ -100,6 +100,28 @@ class NetworkTests: XCTestCase {
 		wait(for: [expectations], timeout: 3)
 		XCTAssert(pass, "Error: network.get(page: 1)")
 	}
+	
+	func testSearchHeros() throws {
+		let network = Network()
+		
+		let expectations = XCTestExpectation()
+		var pass = false
+		
+		network.search(text: "batman") { (array, error) in
+			
+			if array != nil {
+				for item in array! {
+					print("item: \(item)")
+				}
+				
+				pass = array!.count > 0
+			}
+			expectations.fulfill()
+		}
+		
+		wait(for: [expectations], timeout: 3)
+		XCTAssert(pass, "Error: network.get(page: 1)")
+	}
 
     func testPerformanceExample() throws {
         // This is an example of a performance test case.

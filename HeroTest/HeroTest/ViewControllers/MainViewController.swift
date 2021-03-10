@@ -12,8 +12,10 @@ class MainViewController: UIViewController {
 	@IBOutlet weak var vwTable: UITableView!
 	@IBOutlet weak var cnsTableBottom: NSLayoutConstraint!
 	@IBOutlet weak var vwActivityIndicator: UIActivityIndicatorView!
+	@IBOutlet weak var vwSearch: UISearchBar!
 	
 	public var data = [HeroViewModel]()
+	public var searchItems = [HeroViewModel]()
 	public var network = Network()
 	public var currentPage = 0
 	public var isLoading = true
@@ -23,6 +25,7 @@ class MainViewController: UIViewController {
 		
 		// Do any additional setup after loading the view.
 		self.configureTableView()
+		self.configureSearchBar()
 		self.loadData()
 	}
 	
@@ -74,7 +77,7 @@ class MainViewController: UIViewController {
 		- message: display message for the dialog
 		- title: title used for the dialog
 	*/
-	private func showAlert(message: String, title: String? = nil) {
+	public func showAlert(message: String, title: String? = nil) {
 		let control = UIAlertController(title: title, message: message, preferredStyle: .alert)
 		control.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
 		
@@ -87,7 +90,7 @@ class MainViewController: UIViewController {
 	- Parameters:
 		- visible: flag to show/hide dialog
 	*/
-	private func showActivity(visible: Bool) {
+	public func showActivity(visible: Bool) {
 		
 		//be sure to call on main thread
 		DispatchQueue.main.async {

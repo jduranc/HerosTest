@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="g7x-Ia-FGz">
-                                <rect key="frame" x="0.0" y="44" width="414" height="778"/>
+                                <rect key="frame" x="0.0" y="100" width="414" height="722"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="HeroCell" rowHeight="100" id="Qeb-1j-9Hz" customClass="HeroTableViewCell" customModule="HeroTest" customModuleProvider="target">
@@ -89,6 +89,15 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <searchBar contentMode="redraw" searchBarStyle="prominent" placeholder="Busqueda..." showsSearchResultsButton="YES" showsCancelButton="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Xqr-LA-GON">
+                                <rect key="frame" x="0.0" y="44" width="414" height="56"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <scopeButtonTitles>
+                                    <string>Title</string>
+                                    <string>Title</string>
+                                </scopeButtonTitles>
+                            </searchBar>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="pbi-bB-cm0">
                                 <rect key="frame" x="188.5" y="830" width="37" height="37"/>
                             </activityIndicatorView>
@@ -97,9 +106,12 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="pbi-bB-cm0" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="4iF-g4-lQo"/>
-                            <constraint firstItem="g7x-Ia-FGz" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Efk-7M-rpX"/>
+                            <constraint firstItem="Xqr-LA-GON" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="EWg-od-yzm"/>
                             <constraint firstItem="g7x-Ia-FGz" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="Ifo-qI-Qty"/>
                             <constraint firstItem="pbi-bB-cm0" firstAttribute="top" secondItem="g7x-Ia-FGz" secondAttribute="bottom" constant="8" id="T8k-jI-igT"/>
+                            <constraint firstItem="Xqr-LA-GON" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="XFp-iH-H0e"/>
+                            <constraint firstItem="g7x-Ia-FGz" firstAttribute="top" secondItem="Xqr-LA-GON" secondAttribute="bottom" id="fTP-jA-Ihm"/>
+                            <constraint firstItem="Xqr-LA-GON" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="iSJ-e0-70b"/>
                             <constraint firstItem="g7x-Ia-FGz" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="j3p-iM-1k9"/>
                             <constraint firstItem="g7x-Ia-FGz" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" constant="-40" id="phk-jK-eoz"/>
                         </constraints>
@@ -107,6 +119,7 @@
                     <connections>
                         <outlet property="cnsTableBottom" destination="phk-jK-eoz" id="1rx-k1-AcV"/>
                         <outlet property="vwActivityIndicator" destination="pbi-bB-cm0" id="7U9-DG-mmV"/>
+                        <outlet property="vwSearch" destination="Xqr-LA-GON" id="y7T-ZI-umV"/>
                         <outlet property="vwTable" destination="g7x-Ia-FGz" id="bwe-uI-8GP"/>
                     </connections>
                 </viewController>
