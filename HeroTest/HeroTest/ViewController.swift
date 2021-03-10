@@ -71,8 +71,10 @@ class ViewController: UIViewController {
 		}
 	}
 	
+	/// Show loading indicator
 	private func showActivity(enable: Bool) {
 		
+		//be sure to call on main thread
 		DispatchQueue.main.async {
 			var posX : CGFloat = 0.0
 			if enable {
@@ -122,6 +124,8 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
 	}
 	
 	func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+		
+		//call load next page if about display last row
 		if indexPath.row == self.data.count - 1 && !self.isLoading {
 			self.loadData(page: self.currentPage + 1)
 		}

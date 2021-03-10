@@ -7,7 +7,9 @@
 
 import UIKit
 
+/// Represent the `Network` Error types.
 public enum NetworkError: Error, LocalizedError {
+	
 	case InvalidURL(url: String)
 	case InvalidParameters(parameters: [String: AnyObject])
 	case NoDataResponse
