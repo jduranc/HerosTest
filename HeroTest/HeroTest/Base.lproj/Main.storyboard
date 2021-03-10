@@ -295,7 +295,7 @@
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
                                             <constraint firstItem="W5C-LH-XnC" firstAttribute="top" secondItem="8tR-Ux-leu" secondAttribute="top" constant="8" id="5qs-A1-YZg"/>
-                                            <constraint firstAttribute="height" priority="250" constant="700" id="SZW-fD-YkN"/>
+                                            <constraint firstAttribute="height" constant="700" id="SZW-fD-YkN"/>
                                             <constraint firstItem="W5C-LH-XnC" firstAttribute="leading" secondItem="8tR-Ux-leu" secondAttribute="leading" constant="8" id="rwk-8Q-cb8"/>
                                             <constraint firstAttribute="trailing" secondItem="W5C-LH-XnC" secondAttribute="trailing" constant="8" id="ucK-ta-MPz"/>
                                         </constraints>
