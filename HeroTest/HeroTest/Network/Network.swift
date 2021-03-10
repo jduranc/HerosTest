@@ -37,7 +37,7 @@ class Network: NSObject {
 		- method: String with method on server, GET, POST, DELETE, etc.
 		- parameters: Dictionary with list of parameters to send in the request.
 		- headers: Dictionary with list of header to include in the request. *Notice* "Accept" & "Content-Type" with values "application/json" are included by default.
-		- handler: Closure function to handle the response of request. This handler will be called on preset 'dispatchQueue', mainQueue by default.
+		- handler: Closure function to handle the response of request.
 		- auth: String with access token/ Authorization bearer, if value is nil its not used (default).
 	*/
 	public func doRequest(endpoint: String, method: String, parameters: [String:AnyObject]? = nil, headers: [String: String]? = nil, handler: DataHandler, auth: String? = nil) {

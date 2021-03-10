@@ -27,6 +27,7 @@
 		F1A463CC25F7F91A00D0A6B1 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A463CB25F7F91A00D0A6B1 /* DetailsViewController.swift */; };
 		F1A463D125F8261D00D0A6B1 /* UIImageView+LoadURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A463D025F8261D00D0A6B1 /* UIImageView+LoadURL.swift */; };
 		F1A463E325F850ED00D0A6B1 /* MainViewController+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A463E225F850ED00D0A6B1 /* MainViewController+TableView.swift */; };
+		F1A463F425F859E900D0A6B1 /* DetailsViewController+Storyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A463F325F859E900D0A6B1 /* DetailsViewController+Storyboard.swift */; };
 		F1B08E3125F7189D00AFF72E /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B08E3025F7189C00AFF72E /* Network.swift */; };
 		F1B08E3925F719CC00AFF72E /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B08E3825F719CC00AFF72E /* NetworkError.swift */; };
 		F1B08E3E25F71AF200AFF72E /* Network+Get.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B08E3D25F71AF200AFF72E /* Network+Get.swift */; };
@@ -77,6 +78,7 @@
 		F1A463CB25F7F91A00D0A6B1 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		F1A463D025F8261D00D0A6B1 /* UIImageView+LoadURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+LoadURL.swift"; sourceTree = "<group>"; };
 		F1A463E225F850ED00D0A6B1 /* MainViewController+TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainViewController+TableView.swift"; sourceTree = "<group>"; };
+		F1A463F325F859E900D0A6B1 /* DetailsViewController+Storyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DetailsViewController+Storyboard.swift"; sourceTree = "<group>"; };
 		F1B08E3025F7189C00AFF72E /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		F1B08E3825F719CC00AFF72E /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		F1B08E3D25F71AF200AFF72E /* Network+Get.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Network+Get.swift"; sourceTree = "<group>"; };
@@ -197,6 +199,7 @@
 				F16157A225F711E900AC9AB4 /* MainViewController.swift */,
 				F1A463E225F850ED00D0A6B1 /* MainViewController+TableView.swift */,
 				F1A463CB25F7F91A00D0A6B1 /* DetailsViewController.swift */,
+				F1A463F325F859E900D0A6B1 /* DetailsViewController+Storyboard.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -372,6 +375,7 @@
 				F170150C25F7456B006F9249 /* UIView+Rounded.swift in Sources */,
 				F1A463D125F8261D00D0A6B1 /* UIImageView+LoadURL.swift in Sources */,
 				F170151925F74E5A006F9249 /* UIView+Fade.swift in Sources */,
+				F1A463F425F859E900D0A6B1 /* DetailsViewController+Storyboard.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -17,7 +17,7 @@ extension Network {
 	Function to retrieve Heros data array for ids passed.
 	- Parameters:
 		- endpoint: String value with the url path to the file to download.
-		- handler: Closure function to handle `URLHandler` the response of request. This handler will be called on preset `dispatchQueue`.
+		- handler: Closure function to handle `URLHandler` the response of request.
 	*/
 	public func download(endpoint: String, handler: URLHandler) {
 		guard let url = URL(string: endpoint) else {
@@ -32,7 +32,7 @@ extension Network {
 	Function to retrieve Heros data array for ids passed.
 	- Parameters:
 		- endpoint: URL value with the path to the file to download.
-		- handler: Closure function to handle `URLHandler` the response of request. This handler will be called on preset `dispatchQueue`.
+		- handler: Closure function to handle `URLHandler` the response of request.
 	*/
 	public func download(url: URL, handler: URLHandler) {
 		

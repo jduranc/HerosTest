@@ -12,16 +12,22 @@ class HeroModel: NSObject {
 	/// Current ID on server
 	public var id: Int!
 	
+	/// Hero name
 	public var name: String?
 	
+	/// Power status
 	public var powerstats: [String: Int]?
 	
+	/// Information related to history of hero
 	public var biography: [String: String]?
 	
-	public var aliases: [String: String]?
+//	/// Another names used by Hero
+//	public var aliases: [String: String]?
 	
+	/// Base and job
 	public var work: [String: String]?
 	
+	/// URL with the image of hero
 	public var image: String?
 	
 	override init() {

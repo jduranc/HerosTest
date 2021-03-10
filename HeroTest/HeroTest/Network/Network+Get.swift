@@ -13,7 +13,7 @@ extension Network {
 	Function to retrieve Heros Ids based on pages, *NOTE* since SuperHero API doesn't provide pagination information, this function is used to simulate the API.
 	- Parameters:
 		- page: Int value with current page to search.
-		- handler: Closure function to handle the response of request. This handler will be called on preset 'dispatchQueue', mainQueue by default.
+		- handler: Closure function to handle the response of request.
 	*/
 	public func getPage(page: Int, handler: IDsHandler) {
 		
@@ -30,7 +30,7 @@ extension Network {
 	Function to retrieve Heros data array for ids passed.
 	- Parameters:
 		- page: Int value with current page to search.
-		- handler: Closure function to handle `ArrayDataHandler` the response of request. This handler will be called on preset 'dispatchQueue', mainQueue by default.
+		- handler: Closure function to handle `ArrayDataHandler` the response of request.
 	*/
 	public func get(page: Int, handler: ArrayDataHandler) {
 		
@@ -78,7 +78,7 @@ extension Network {
 	Function to retrieve Heros data array for ids passed.
 	- Parameters:
 		- id: Int value for character information
-		- handler: Closure function to handle `DataHandler` the response of request. This handler will be called on preset 'dispatchQueue', mainQueue by default.
+		- handler: Closure function to handle `DataHandler` the response of request.
 	*/
 	public func getId(id: Int, handler: DataHandler) {
 		let url = Endpoint.Base + "/\(id)"

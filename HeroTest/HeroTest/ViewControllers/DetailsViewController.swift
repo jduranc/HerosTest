@@ -44,14 +44,11 @@ class DetailsViewController: UIViewController {
 	func update() {
 	
 		self.lbName.text = model.name
-//			self.imPicture.image =
 		self.lbFullname.text = model.fullName
 		self.lbAlterEgo.text = model.alterEgos
 		self.lbPlaceOfBirth.text = model.placeOfBirth
 		self.lbFirstAppearance.text = model.firstAppearance
 		self.lbPublisher.text = model.publisher
-//		self.lbAlignment.text = model.alignment
-		
 		self.imIcon.image = model.icon
 		
 		self.lbOcupation.text = model.occupation
@@ -68,29 +65,7 @@ class DetailsViewController: UIViewController {
 		}
 	}
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 	@IBAction func onClickClose(_ sender: Any) {
 		self.dismiss(animated: true, completion: nil)
-	}
-}
-
-extension DetailsViewController {
-	
-	public static func viewController() -> DetailsViewController {
-		return DetailsViewController.viewController(identifier: String(describing: self))
-	}
-	
-	public static func viewController(identifier: String, storyboard: String = "Main") -> DetailsViewController {
-		let storyboard = UIStoryboard(name: storyboard, bundle: nil)
-		let control = storyboard.instantiateViewController(withIdentifier: identifier) as! DetailsViewController
-		return control
 	}
 }

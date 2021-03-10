@@ -89,7 +89,7 @@ class HeroViewModel: NSObject {
 	/// Hero first appearance
 	var firstAppearance : String {
 		get {
-			return self.model.biography?["first-appearance"]  ?? "???"
+			return self.model.biography?["first-appearance"]  ?? "?"
 		}
 	}
 	
