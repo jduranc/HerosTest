@@ -94,8 +94,7 @@ class Network: NSObject {
 			   let values = json as? [String: AnyObject] {
 
 // 				//TODO validate response field
-//				if let content = values["response"] as? String,
-//				   let code = values["code"] as? Int {
+//				if let content = values["response"] as? String {
 //					//do something with response
 //				}
 				

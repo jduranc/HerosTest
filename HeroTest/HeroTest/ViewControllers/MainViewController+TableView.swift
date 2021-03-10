@@ -35,6 +35,7 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
 		
 		
 		if let cell = tableView.dequeueReusableCell(withIdentifier: "HeroCell", for: indexPath) as? HeroTableViewCell {
+			
 			cell.network = self.network
 			cell.model = model
 			return cell
@@ -73,6 +74,15 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
 
 		let control = DetailsViewController.viewController()
 		control.model = model
+		control.modalPresentationStyle = .fullScreen
+		
+		if let cell = self.vwTable.cellForRow(at: indexPath) as? HeroTableViewCell {
+			if lastHeroCell != nil {
+				lastHeroCell?.configureHero(enabled: false)
+			}
+			cell.configureHero(enabled: true)
+			lastHeroCell = cell
+		}
 		
 		self.present(control, animated: true, completion: nil)
 	}

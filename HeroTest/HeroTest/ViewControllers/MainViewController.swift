@@ -19,6 +19,8 @@ class MainViewController: UIViewController {
 	public var network = Network()
 	public var currentPage = 0
 	public var isLoading = true
+	/// Reference to last HeroCell configurated to disable the effect
+	public weak var lastHeroCell : HeroTableViewCell?
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()

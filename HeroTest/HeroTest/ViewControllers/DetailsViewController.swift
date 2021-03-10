@@ -28,16 +28,15 @@ class DetailsViewController: UIViewController {
 	public var model : HeroViewModel!
 	public var network : Network!
 	
-	var initialized = false
-	
 	override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-		initialized = true
 		self.btClose.rounded()
 		self.vwFrame.rounded()
 		self.imPicture.contentMode = .scaleAspectFill
+		
+		self.configureHero()
 		
 		update()
     }
@@ -56,7 +55,7 @@ class DetailsViewController: UIViewController {
 		self.lbBase.text = model.base
 		
 		if let local = model.localImage {
-			self.imPicture.load(url: local)
+			self.imPicture.load(url: local, time: 0)
 			
 //			} else if let url = model.image {
 //				self.imPicture.alpha = 0

@@ -44,8 +44,11 @@ class HeroTableViewCell: UITableViewCell {
 	
 	override func prepareForReuse() {
 		super.prepareForReuse()
+		
 		self.lbName.text = nil
 		self.imPicture.image = nil
+		
+		self.configureHero(enabled: false)
 	}
 
 //    override func setSelected(_ selected: Bool, animated: Bool) {
