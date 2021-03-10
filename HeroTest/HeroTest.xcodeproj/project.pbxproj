@@ -38,6 +38,7 @@
 		F1B08E3E25F71AF200AFF72E /* Network+Get.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B08E3D25F71AF200AFF72E /* Network+Get.swift */; };
 		F1C7A90A25F9444900396B60 /* HeroTableViewCell+Hero.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C7A90925F9444900396B60 /* HeroTableViewCell+Hero.swift */; };
 		F1C7A91225F9450200396B60 /* DetailsViewController+Hero.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C7A91125F9450200396B60 /* DetailsViewController+Hero.swift */; };
+		F1C7A91F25F94C4300396B60 /* DetailsViewController+Chart.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C7A91E25F94C4300396B60 /* DetailsViewController+Chart.swift */; };
 		F1E42CCA25F73043005CA293 /* Mutex.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E42CC925F73043005CA293 /* Mutex.swift */; };
 /* End PBXBuildFile section */
 
@@ -102,6 +103,7 @@
 		F1B08E3D25F71AF200AFF72E /* Network+Get.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Network+Get.swift"; sourceTree = "<group>"; };
 		F1C7A90925F9444900396B60 /* HeroTableViewCell+Hero.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HeroTableViewCell+Hero.swift"; sourceTree = "<group>"; };
 		F1C7A91125F9450200396B60 /* DetailsViewController+Hero.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DetailsViewController+Hero.swift"; sourceTree = "<group>"; };
+		F1C7A91E25F94C4300396B60 /* DetailsViewController+Chart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DetailsViewController+Chart.swift"; sourceTree = "<group>"; };
 		F1E42CC925F73043005CA293 /* Mutex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mutex.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -251,6 +253,7 @@
 				F1A463CB25F7F91A00D0A6B1 /* DetailsViewController.swift */,
 				F1A463F325F859E900D0A6B1 /* DetailsViewController+Storyboard.swift */,
 				F1C7A91125F9450200396B60 /* DetailsViewController+Hero.swift */,
+				F1C7A91E25F94C4300396B60 /* DetailsViewController+Chart.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -535,6 +538,7 @@
 				F1A463CC25F7F91A00D0A6B1 /* DetailsViewController.swift in Sources */,
 				F16157A125F711E900AC9AB4 /* SceneDelegate.swift in Sources */,
 				F170150425F7422A006F9249 /* HeroTableViewCell.swift in Sources */,
+				F1C7A91F25F94C4300396B60 /* DetailsViewController+Chart.swift in Sources */,
 				F1A463FC25F85EC200D0A6B1 /* MainViewController+SearchBar.swift in Sources */,
 				F170150C25F7456B006F9249 /* UIView+Rounded.swift in Sources */,
 				F1A463D125F8261D00D0A6B1 /* UIImageView+LoadURL.swift in Sources */,

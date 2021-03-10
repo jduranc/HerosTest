@@ -8,6 +8,12 @@
 import UIKit
 
 class HeroViewModel: NSObject {
+	
+	enum Alignment {
+		case Hero
+		case Villain
+	}
+	
 	var model : HeroModel!
 	var localImage : URL?
 	
@@ -101,9 +107,9 @@ class HeroViewModel: NSObject {
 	}
 	
 	/// Alignment side
-	var alignment : String {
+	var alignment : Alignment {
 		get {
-			return self.model.biography?["alignment"]  ?? "?"
+			return self.model.biography?["alignment"]  == "bad" ? .Villain : .Hero
 		}
 	}
 	
@@ -127,14 +133,21 @@ class HeroViewModel: NSObject {
 		get {
 			let value = self.alignment
 			
-			if value == "good" {
+			if value == .Hero {
 				return UIImage(named: "ico_hero")
 				
-			} else if value == "bad" {
+			} else if value == .Villain {
 				return UIImage(named: "ico_villain")
 			}
 			
 			return nil
+		}
+	}
+	
+	/// the status for powers of Hero
+	var powerstats: [String: Int]? {
+		get {
+			return model.powerstats
 		}
 	}
 }

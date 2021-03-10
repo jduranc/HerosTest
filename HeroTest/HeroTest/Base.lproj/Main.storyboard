@@ -139,10 +139,10 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="768"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8tR-Ux-leu" userLabel="ContentView">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="700"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="950"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="W5C-LH-XnC">
-                                                <rect key="frame" x="8" y="8" width="398" height="919.5"/>
+                                                <rect key="frame" x="8" y="8" width="398" height="943"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ln0-wl-9Rg">
                                                         <rect key="frame" x="0.0" y="0.0" width="398" height="160"/>
@@ -260,7 +260,7 @@
                                                         </constraints>
                                                     </view>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="lSf-Dx-2SR">
-                                                        <rect key="frame" x="0.0" y="529.5" width="398" height="92"/>
+                                                        <rect key="frame" x="0.0" y="529.5" width="398" height="119.5"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ocupacion" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bmz-h2-IAB">
                                                                 <rect key="frame" x="0.0" y="0.0" width="398" height="19.5"/>
@@ -286,20 +286,19 @@
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Estatus" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HCd-l2-rzz">
+                                                                <rect key="frame" x="0.0" y="100" width="398" height="19.5"/>
+                                                                <fontDescription key="fontDescription" style="UICTFontTextStyleCallout"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
                                                         </subviews>
                                                     </stackView>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SAG-sv-UPQ">
-                                                        <rect key="frame" x="0.0" y="635.5" width="398" height="20"/>
-                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                    <view contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="97d-6Z-e6F" customClass="BarChartView" customModule="Charts">
+                                                        <rect key="frame" x="0.0" y="663" width="398" height="280"/>
+                                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="height" constant="20" id="PSs-ao-s39"/>
-                                                        </constraints>
-                                                    </view>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="97d-6Z-e6F">
-                                                        <rect key="frame" x="0.0" y="669.5" width="398" height="250"/>
-                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="250" id="zaa-VV-gca"/>
+                                                            <constraint firstAttribute="height" constant="280" id="zaa-VV-gca"/>
                                                         </constraints>
                                                     </view>
                                                 </subviews>
@@ -308,7 +307,7 @@
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
                                             <constraint firstItem="W5C-LH-XnC" firstAttribute="top" secondItem="8tR-Ux-leu" secondAttribute="top" constant="8" id="5qs-A1-YZg"/>
-                                            <constraint firstAttribute="height" constant="700" id="SZW-fD-YkN"/>
+                                            <constraint firstAttribute="height" constant="950" id="SZW-fD-YkN"/>
                                             <constraint firstItem="W5C-LH-XnC" firstAttribute="leading" secondItem="8tR-Ux-leu" secondAttribute="leading" constant="8" id="rwk-8Q-cb8"/>
                                             <constraint firstAttribute="trailing" secondItem="W5C-LH-XnC" secondAttribute="trailing" constant="8" id="ucK-ta-MPz"/>
                                         </constraints>
@@ -364,6 +363,7 @@
                         <outlet property="lbOcupation" destination="LZx-yk-aqb" id="aKx-fF-FOY"/>
                         <outlet property="lbPlaceOfBirth" destination="CuA-Lt-OXW" id="CJ3-Ji-C9n"/>
                         <outlet property="lbPublisher" destination="CKy-G4-HTm" id="qlm-xb-n58"/>
+                        <outlet property="vwChart" destination="97d-6Z-e6F" id="pml-Pa-icj"/>
                         <outlet property="vwFrame" destination="TU7-OQ-Eap" id="83I-HC-KdP"/>
                     </connections>
                 </viewController>

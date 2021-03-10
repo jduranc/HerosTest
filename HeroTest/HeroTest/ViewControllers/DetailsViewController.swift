@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Charts
 
 class DetailsViewController: UIViewController {
 
@@ -24,6 +25,7 @@ class DetailsViewController: UIViewController {
 	@IBOutlet weak var lbOcupation: UILabel!
 	@IBOutlet weak var lbBase: UILabel!
 	@IBOutlet weak var btClose: UIButton!
+	@IBOutlet weak var vwChart: BarChartView!
 	
 	public var model : HeroViewModel!
 	public var network : Network!
@@ -37,6 +39,7 @@ class DetailsViewController: UIViewController {
 		self.imPicture.contentMode = .scaleAspectFill
 		
 		self.configureHero()
+		self.configureChart()
 		
 		update()
     }
