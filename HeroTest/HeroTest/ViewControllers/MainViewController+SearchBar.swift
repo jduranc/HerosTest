@@ -33,56 +33,73 @@ extension MainViewController: UISearchBarDelegate {
 		}
 	}
 	
+	
+	@objc func search(text: String) {
+		
+		self.showActivity(visible: true)
+		
+		DispatchQueue.global(qos: .background).async {
+			
+			self.network.search(text: text) { [weak self] (array, error) in
+				guard let self = self else {
+					return
+				}
+				
+				self.showActivity(visible: false)
+
+				//check for error
+				if error != nil {
+					var networkError = true
+					
+					//if error is no data, do no threat erro like network error
+					if let netErr = error as? NetworkError {
+						networkError = (netErr != .NoDataResponse)
+					}
+					
+					if networkError {
+//						self.cancelSearch()
+						self.showAlert(message: "Verifique su conexion a internet.", title: "Error")
+						return
+					}
+				}
+				
+				if array == nil || array?.count == 0 {
+					self.showAlert(message: "No se encontraron resultados.", title: "Informacion")
+					return
+				}
+				
+				self.searchItems.removeAll()
+				
+				for item in array! {
+					let model = HeroViewModel(model: item)
+					self.searchItems.append(model)
+				}
+				
+				DispatchQueue.main.async {
+					self.vwTable.reloadData()
+				}
+			}
+		}
+	}
 	// MARK: - UISearchBarDelegate
+	func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+		print("edited")
+		
+		timer?.invalidate()
+		
+		if let text = searchBar.text, !text.isEmpty {
+			timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: false, block: { [weak self] (_) in
+				guard let self = self else { return }
+				
+				self.search(text: text)
+			})
+		}
+	}
 	
 	func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
 		
 		if let text = searchBar.text, !text.isEmpty {
-			
-			self.showActivity(visible: true)
-			
-			DispatchQueue.global(qos: .background).async {
-				
-				self.network.search(text: text) { [weak self] (array, error) in
-					guard let self = self else {
-						return
-					}
-					
-					self.showActivity(visible: false)
-
-					//check for error
-					if error != nil {
-						var networkError = true
-						
-						//if error is no data, do no threat erro like network error
-						if let netErr = error as? NetworkError {
-							networkError = (netErr != .NoDataResponse)
-						}
-						
-						if networkError {
-							self.cancelSearch()
-							self.showAlert(message: "Verifique su conexion a internet.", title: "Error")
-							return
-						}
-					}
-					
-					if array == nil || array?.count == 0 {
-						self.showAlert(message: "No se encontraron resultados.", title: "Informacion")
-						return
-					}
-					
-					self.searchItems.removeAll()
-					
-					for item in array! {
-						let model = HeroViewModel(model: item)
-						self.searchItems.append(model)
-					}
-					
-					DispatchQueue.main.async {
-						self.vwTable.reloadData()
-					}
-				}
-			}
+			self.search(text: text)
 		} else {
 			cancelSearch()
 		}

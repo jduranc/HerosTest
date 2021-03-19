@@ -19,8 +19,11 @@ class MainViewController: UIViewController {
 	public var network = Network()
 	public var currentPage = 0
 	public var isLoading = true
+	
 	/// Reference to last HeroCell configurated to disable the effect
 	public weak var lastHeroCell : HeroTableViewCell?
+	//timer for search
+	public var timer: Timer?
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
