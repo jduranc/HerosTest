@@ -42,8 +42,15 @@ class HeroPhotoView: UIView {
 		
 		Bundle.main.loadNibNamed("HeroPhotoView", owner: self, options: nil)
 		addSubview(self.contentView!)
-		self.contentView!.frame = self.bounds
-		self.contentView!.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+		
+		self.contentView!.translatesAutoresizingMaskIntoConstraints = false
+		NSLayoutConstraint.activate(
+			[self.contentView!.topAnchor.constraint(equalTo: self.topAnchor),
+			 self.contentView!.bottomAnchor.constraint(equalTo: self.bottomAnchor),
+			 self.contentView!.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+			 self.contentView!.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+			]
+		)
 		
 		self.clipsToBounds = true
 		self.rounded()
