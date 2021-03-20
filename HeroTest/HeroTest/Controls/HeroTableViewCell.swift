@@ -11,8 +11,8 @@ class HeroTableViewCell: UITableViewCell {
 
 	@IBOutlet weak var lbName: UILabel!
 	@IBOutlet weak var lbFullname: UILabel!
-	@IBOutlet weak var imPicture: UIImageView!
-	@IBOutlet weak var vwFrame: UIView!
+//	@IBOutlet weak var imPicture: UIImageView!
+	@IBOutlet weak var vwFrame: HeroPhotoView!
 	@IBOutlet weak var imIcon: UIImageView!
 	
 	public var network : Network!
@@ -24,11 +24,10 @@ class HeroTableViewCell: UITableViewCell {
 			
 			//check for local downloaded image
 			if let local = model.localImage {
-				self.imPicture.load(url: local)
+				self.vwFrame.load(url: local)
 			
 			// try to download the remote image
 			} else if let url = model.image {
-				self.imPicture.alpha = 0
 				self.downloadImage(url: url)
 			}
 		}
@@ -38,22 +37,14 @@ class HeroTableViewCell: UITableViewCell {
         super.awakeFromNib()
 		
         // Initialization code
-		self.vwFrame.rounded()
-		self.imPicture.contentMode = .scaleAspectFill
     }
 	
 	override func prepareForReuse() {
 		super.prepareForReuse()
 		
 		self.lbName.text = nil
-		self.imPicture.image = nil
+		self.vwFrame.image = nil
 		
 		self.configureHero(enabled: false)
 	}
-
-//    override func setSelected(_ selected: Bool, animated: Bool) {
-//        super.setSelected(selected, animated: animated)
-//
-//        // Configure the view for the selected state
-//    }
 }

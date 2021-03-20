@@ -31,7 +31,7 @@ extension HeroTableViewCell {
 				try fm.moveItem(at: url, to: dst)
 				
 				self.model.localImage = dst
-				self.imPicture.load(url: dst)
+				self.vwFrame.load(url: dst)
 				
 			} catch { //let error {
 				//print("downloadImage Error: \(error)")

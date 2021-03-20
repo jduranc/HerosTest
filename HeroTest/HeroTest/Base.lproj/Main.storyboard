@@ -34,20 +34,11 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IyY-XB-Btr">
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IyY-XB-Btr" customClass="HeroPhotoView" customModule="HeroTest" customModuleProvider="target">
                                                     <rect key="frame" x="8" y="20" width="60" height="60"/>
-                                                    <subviews>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1g2-Yi-mFb">
-                                                            <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
-                                                        </imageView>
-                                                    </subviews>
                                                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="60" id="P3l-3u-gp0"/>
-                                                        <constraint firstAttribute="bottom" secondItem="1g2-Yi-mFb" secondAttribute="bottom" id="Qiz-hk-On8"/>
-                                                        <constraint firstItem="1g2-Yi-mFb" firstAttribute="top" secondItem="IyY-XB-Btr" secondAttribute="top" id="SoS-yh-IXd"/>
-                                                        <constraint firstItem="1g2-Yi-mFb" firstAttribute="leading" secondItem="IyY-XB-Btr" secondAttribute="leading" id="c0e-IF-9Ab"/>
-                                                        <constraint firstAttribute="trailing" secondItem="1g2-Yi-mFb" secondAttribute="trailing" id="nkw-yH-BGd"/>
                                                         <constraint firstAttribute="width" secondItem="IyY-XB-Btr" secondAttribute="height" multiplier="1:1" id="rIk-xT-LJO"/>
                                                     </constraints>
                                                 </view>
@@ -67,9 +58,9 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="NXp-mr-Bgy" firstAttribute="trailing" secondItem="tdk-lD-jfH" secondAttribute="trailing" id="1b6-Lo-OZ9"/>
+                                                <constraint firstItem="tdk-lD-jfH" firstAttribute="centerY" secondItem="IyY-XB-Btr" secondAttribute="centerY" id="4Jy-ng-O6c"/>
                                                 <constraint firstItem="tdk-lD-jfH" firstAttribute="trailing" secondItem="kCU-GH-SgE" secondAttribute="trailingMargin" id="5gN-5L-TcH"/>
                                                 <constraint firstAttribute="bottom" secondItem="NXp-mr-Bgy" secondAttribute="bottom" constant="12" id="7zh-vR-itZ"/>
-                                                <constraint firstItem="tdk-lD-jfH" firstAttribute="centerY" secondItem="1g2-Yi-mFb" secondAttribute="centerY" id="9Wu-ma-DgR"/>
                                                 <constraint firstItem="IyY-XB-Btr" firstAttribute="leading" secondItem="kCU-GH-SgE" secondAttribute="leading" constant="8" id="T8k-z3-3NK"/>
                                                 <constraint firstItem="tdk-lD-jfH" firstAttribute="leading" secondItem="IyY-XB-Btr" secondAttribute="trailing" constant="14" id="THe-R8-iLu"/>
                                                 <constraint firstItem="IyY-XB-Btr" firstAttribute="centerY" secondItem="kCU-GH-SgE" secondAttribute="centerY" id="bkq-lV-lHO"/>
@@ -81,7 +72,6 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="imIcon" destination="KPs-O2-brn" id="3es-ZY-3kq"/>
-                                            <outlet property="imPicture" destination="1g2-Yi-mFb" id="KaZ-ii-RnR"/>
                                             <outlet property="lbFullname" destination="NXp-mr-Bgy" id="kgC-y5-car"/>
                                             <outlet property="lbName" destination="tdk-lD-jfH" id="8UI-Wt-bQg"/>
                                             <outlet property="vwFrame" destination="IyY-XB-Btr" id="XID-OK-p8X"/>
@@ -154,20 +144,11 @@
                                                                     <constraint firstAttribute="width" constant="46" id="nBg-me-dju"/>
                                                                 </constraints>
                                                             </imageView>
-                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TU7-OQ-Eap" userLabel="Frame View">
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TU7-OQ-Eap" userLabel="Frame View" customClass="HeroPhotoView" customModule="HeroTest" customModuleProvider="target">
                                                                 <rect key="frame" x="119" y="0.0" width="160" height="160"/>
-                                                                <subviews>
-                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8Dq-ig-q5d">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="160" height="160"/>
-                                                                    </imageView>
-                                                                </subviews>
-                                                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <constraints>
-                                                                    <constraint firstAttribute="trailing" secondItem="8Dq-ig-q5d" secondAttribute="trailing" id="CtZ-PV-490"/>
-                                                                    <constraint firstItem="8Dq-ig-q5d" firstAttribute="top" secondItem="TU7-OQ-Eap" secondAttribute="top" id="VTF-4I-pT3"/>
                                                                     <constraint firstAttribute="width" secondItem="TU7-OQ-Eap" secondAttribute="height" multiplier="1:1" id="dwu-mZ-3RS"/>
-                                                                    <constraint firstItem="8Dq-ig-q5d" firstAttribute="leading" secondItem="TU7-OQ-Eap" secondAttribute="leading" id="sNe-4g-Ix9"/>
-                                                                    <constraint firstAttribute="bottom" secondItem="8Dq-ig-q5d" secondAttribute="bottom" id="xVU-mt-Wed"/>
                                                                 </constraints>
                                                             </view>
                                                         </subviews>
@@ -354,7 +335,6 @@
                     <connections>
                         <outlet property="btClose" destination="80d-ir-N0T" id="7Rn-ub-vkB"/>
                         <outlet property="imIcon" destination="wVd-hU-jOC" id="dyk-zs-VxX"/>
-                        <outlet property="imPicture" destination="8Dq-ig-q5d" id="6Rc-Z4-WE9"/>
                         <outlet property="lbAlterEgo" destination="cJ2-YN-M5Y" id="vVt-aG-AWM"/>
                         <outlet property="lbBase" destination="xcy-P6-V3e" id="TVk-dE-SHX"/>
                         <outlet property="lbFirstAppearance" destination="Ifb-Ki-n4P" id="GWn-aw-G2H"/>

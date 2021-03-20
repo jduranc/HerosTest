@@ -10,8 +10,7 @@ import Charts
 
 class DetailsViewController: UIViewController {
 
-	@IBOutlet weak var vwFrame: UIView!
-	@IBOutlet weak var imPicture: UIImageView!
+	@IBOutlet weak var vwFrame: HeroPhotoView!
 	@IBOutlet weak var lbName: UILabel!
 	
 	@IBOutlet weak var lbFullname: UILabel!
@@ -35,8 +34,6 @@ class DetailsViewController: UIViewController {
 
         // Do any additional setup after loading the view.
 		self.btClose.rounded()
-		self.vwFrame.rounded()
-		self.imPicture.contentMode = .scaleAspectFill
 		
 		self.configureHero()
 		self.configureChart()
@@ -58,8 +55,10 @@ class DetailsViewController: UIViewController {
 		self.lbBase.text = model.base
 		
 		if let local = model.localImage {
-			self.imPicture.load(url: local, time: 0)
 			
+			self.vwFrame.load(url: local, time: 0)
+			
+//// TODO: validate image is actually downloaded
 //			} else if let url = model.image {
 //				self.imPicture.alpha = 0
 //				self.downloadImage(url: url)
