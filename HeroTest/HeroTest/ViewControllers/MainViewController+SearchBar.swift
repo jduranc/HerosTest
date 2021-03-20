@@ -33,7 +33,11 @@ extension MainViewController: UISearchBarDelegate {
 		}
 	}
 	
-	
+	/**
+	Perform search proces, the API return all possible matches with the parameter.
+	- Parameters:
+		- text: the hero's name to search.
+	*/
 	@objc func search(text: String) {
 		
 		self.showActivity(visible: true)
@@ -57,7 +61,6 @@ extension MainViewController: UISearchBarDelegate {
 					}
 					
 					if networkError {
-//						self.cancelSearch()
 						self.showAlert(message: "Verifique su conexion a internet.", title: "Error")
 						return
 					}
@@ -81,10 +84,9 @@ extension MainViewController: UISearchBarDelegate {
 			}
 		}
 	}
+	
 	// MARK: - UISearchBarDelegate
 	func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-		print("edited")
-		
 		timer?.invalidate()
 		
 		if let text = searchBar.text, !text.isEmpty {

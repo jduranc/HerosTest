@@ -12,7 +12,7 @@ extension Network {
 	/**
 	Function to search Heros by name.
 	- Parameters:
-		- page: page index for Heros
+		- text: the Hero's name to search.
 		- handler: Closure function to handle `HeroArrayHandler` the response of request.
 	*/
 	public func search(text: String, handler: HeroArrayHandler) {
