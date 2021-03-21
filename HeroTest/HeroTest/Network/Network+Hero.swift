@@ -51,7 +51,7 @@ extension Network {
 		- count: number of random elements to retrieve for Heros
 		- handler: Closure function to handle `HeroArrayHandler` the response of request.
 	*/
-	public func getRandomHeros(count: Int, max: Int = 100, handler: HeroArrayHandler) {
+	public func getRandomHeros(count: Int, max: Int = 1000, handler: HeroArrayHandler) {
 		
 		let ids = (1...count).map( {_ in Int.random(in: 1...max) })
 		
