@@ -10,6 +10,11 @@
 		331BB4E3B643722744CD421D /* Pods_HeroTest_HeroTestUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 541B516189FA643ACD29C853 /* Pods_HeroTest_HeroTestUITests.framework */; };
 		37548A76EFDE4A3721C66399 /* Pods_HeroTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B63E757B9E73538654DD294C /* Pods_HeroTest.framework */; };
 		E90FDD7072CF50F66E6DCB0F /* Pods_HeroTestTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7DACB48EF0A352073D861181 /* Pods_HeroTestTests.framework */; };
+		F15E382F2605B0EF0038E195 /* HeroCollectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F15E382E2605B0EF0038E195 /* HeroCollectionView.xib */; };
+		F15E38342605B1650038E195 /* HeroCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F15E38332605B1650038E195 /* HeroCollectionView.swift */; };
+		F15E38412605B6370038E195 /* HeroCollectionView+Collection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F15E38402605B6360038E195 /* HeroCollectionView+Collection.swift */; };
+		F15E38462605B6770038E195 /* HeroCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F15E38452605B6770038E195 /* HeroCollectionViewCell.xib */; };
+		F15E384B2605B6EE0038E195 /* HeroCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F15E384A2605B6EE0038E195 /* HeroCollectionViewCell.swift */; };
 		F161579F25F711E900AC9AB4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F161579E25F711E900AC9AB4 /* AppDelegate.swift */; };
 		F16157A125F711E900AC9AB4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16157A025F711E900AC9AB4 /* SceneDelegate.swift */; };
 		F16157A325F711E900AC9AB4 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16157A225F711E900AC9AB4 /* MainViewController.swift */; };
@@ -71,6 +76,11 @@
 		B63E757B9E73538654DD294C /* Pods_HeroTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HeroTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF5A6856BB23D808F5686383 /* Pods-HeroTestTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HeroTestTests.release.xcconfig"; path = "Target Support Files/Pods-HeroTestTests/Pods-HeroTestTests.release.xcconfig"; sourceTree = "<group>"; };
 		C9715F6A5EE87A197B74C7F6 /* Pods-HeroTest-HeroTestUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HeroTest-HeroTestUITests.release.xcconfig"; path = "Target Support Files/Pods-HeroTest-HeroTestUITests/Pods-HeroTest-HeroTestUITests.release.xcconfig"; sourceTree = "<group>"; };
+		F15E382E2605B0EF0038E195 /* HeroCollectionView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeroCollectionView.xib; sourceTree = "<group>"; };
+		F15E38332605B1650038E195 /* HeroCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroCollectionView.swift; sourceTree = "<group>"; };
+		F15E38402605B6360038E195 /* HeroCollectionView+Collection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HeroCollectionView+Collection.swift"; sourceTree = "<group>"; };
+		F15E38452605B6770038E195 /* HeroCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeroCollectionViewCell.xib; sourceTree = "<group>"; };
+		F15E384A2605B6EE0038E195 /* HeroCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroCollectionViewCell.swift; sourceTree = "<group>"; };
 		F161579B25F711E900AC9AB4 /* HeroTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HeroTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F161579E25F711E900AC9AB4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F16157A025F711E900AC9AB4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -246,6 +256,11 @@
 				F1C7A90925F9444900396B60 /* HeroTableViewCell+Hero.swift */,
 				F18F9B3F2605741E0038A9E9 /* HeroPhotoView.swift */,
 				F18F9B3A260573BE0038A9E9 /* HeroPhotoView.xib */,
+				F15E38332605B1650038E195 /* HeroCollectionView.swift */,
+				F15E38402605B6360038E195 /* HeroCollectionView+Collection.swift */,
+				F15E382E2605B0EF0038E195 /* HeroCollectionView.xib */,
+				F15E384A2605B6EE0038E195 /* HeroCollectionViewCell.swift */,
+				F15E38452605B6770038E195 /* HeroCollectionViewCell.xib */,
 			);
 			path = Controls;
 			sourceTree = "<group>";
@@ -400,6 +415,8 @@
 				F18F9B3B260573BE0038A9E9 /* HeroPhotoView.xib in Resources */,
 				F16157A825F711EC00AC9AB4 /* Assets.xcassets in Resources */,
 				F16157A625F711E900AC9AB4 /* Main.storyboard in Resources */,
+				F15E38462605B6770038E195 /* HeroCollectionViewCell.xib in Resources */,
+				F15E382F2605B0EF0038E195 /* HeroCollectionView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -533,9 +550,11 @@
 				F1A4640425F8620500D0A6B1 /* Network+Search.swift in Sources */,
 				F1B08E3E25F71AF200AFF72E /* Network+Get.swift in Sources */,
 				F1C7A91225F9450200396B60 /* DetailsViewController+Hero.swift in Sources */,
+				F15E38412605B6370038E195 /* HeroCollectionView+Collection.swift in Sources */,
 				F1A463C325F7ED5100D0A6B1 /* HeroTableViewCell+Image.swift in Sources */,
 				F1A463BB25F7E7E100D0A6B1 /* Network+Hero.swift in Sources */,
 				F1B08E3925F719CC00AFF72E /* NetworkError.swift in Sources */,
+				F15E384B2605B6EE0038E195 /* HeroCollectionViewCell.swift in Sources */,
 				F17014FE25F73CC9006F9249 /* HeroViewModel.swift in Sources */,
 				F1A463E325F850ED00D0A6B1 /* MainViewController+TableView.swift in Sources */,
 				F18F9B402605741E0038A9E9 /* HeroPhotoView.swift in Sources */,
@@ -543,6 +562,7 @@
 				F1E42CCA25F73043005CA293 /* Mutex.swift in Sources */,
 				F1B08E3125F7189D00AFF72E /* Network.swift in Sources */,
 				F1C7A90A25F9444900396B60 /* HeroTableViewCell+Hero.swift in Sources */,
+				F15E38342605B1650038E195 /* HeroCollectionView.swift in Sources */,
 				F1A463CC25F7F91A00D0A6B1 /* DetailsViewController.swift in Sources */,
 				F16157A125F711E900AC9AB4 /* SceneDelegate.swift in Sources */,
 				F170150425F7422A006F9249 /* HeroTableViewCell.swift in Sources */,

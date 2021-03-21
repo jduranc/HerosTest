@@ -22,24 +22,22 @@ class HeroPhotoView: UIView {
 		didSet {
 			self.imPhoto?.backgroundColor = backgroundColor
 			self.contentView?.backgroundColor = backgroundColor
+			self.layer.borderColor = backgroundColor?.cgColor
 		}
 	}
 	
 	required init?(coder: NSCoder) {
 		super.init(coder: coder)
-		self.setup()
+		self.setupNib()
 	}
 	
 	override init(frame: CGRect) {
 		super.init(frame: frame)
-		self.setup()
+		self.setupNib()
 	}
 	
-	/**
-	Perform the setup for loading the XIB and attaching to the owner view.
-	*/
-	private func setup() {
-		
+	/// Perform the setup for loading the NIB and attaching to the owner view.
+	private func setupNib() {
 		Bundle.main.loadNibNamed("HeroPhotoView", owner: self, options: nil)
 		addSubview(self.contentView!)
 		
@@ -51,6 +49,10 @@ class HeroPhotoView: UIView {
 			 self.contentView!.trailingAnchor.constraint(equalTo: self.trailingAnchor),
 			]
 		)
+	}
+	
+	override func awakeFromNib() {
+		super.awakeFromNib()
 		
 		self.clipsToBounds = true
 		self.rounded()
@@ -59,7 +61,12 @@ class HeroPhotoView: UIView {
 		//update background color
 		let backcolor = self.backgroundColor
 		self.backgroundColor = backcolor
+		
+		//set border and color
+		self.layer.borderWidth = 3
+		self.layer.borderColor = backcolor?.cgColor
 	}
+	
 	
 	/**
 	Perform load image from `URL`, then apply fadein effect

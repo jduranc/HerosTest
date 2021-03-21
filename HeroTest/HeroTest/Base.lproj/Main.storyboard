@@ -17,8 +17,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C9G-TS-SIR" customClass="HeroCollectionView" customModule="HeroTest" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="100" width="414" height="122"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="122" id="e83-9O-yNx"/>
+                                </constraints>
+                            </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="g7x-Ia-FGz">
-                                <rect key="frame" x="0.0" y="100" width="414" height="722"/>
+                                <rect key="frame" x="0.0" y="222" width="414" height="600"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="HeroCell" rowHeight="100" id="Qeb-1j-9Hz" customClass="HeroTableViewCell" customModule="HeroTest" customModuleProvider="target">
@@ -98,17 +105,21 @@
                             <constraint firstItem="pbi-bB-cm0" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="4iF-g4-lQo"/>
                             <constraint firstItem="Xqr-LA-GON" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="EWg-od-yzm"/>
                             <constraint firstItem="g7x-Ia-FGz" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="Ifo-qI-Qty"/>
+                            <constraint firstItem="C9G-TS-SIR" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Q48-fB-oD6"/>
                             <constraint firstItem="pbi-bB-cm0" firstAttribute="top" secondItem="g7x-Ia-FGz" secondAttribute="bottom" constant="8" id="T8k-jI-igT"/>
                             <constraint firstItem="Xqr-LA-GON" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="XFp-iH-H0e"/>
-                            <constraint firstItem="g7x-Ia-FGz" firstAttribute="top" secondItem="Xqr-LA-GON" secondAttribute="bottom" id="fTP-jA-Ihm"/>
+                            <constraint firstItem="g7x-Ia-FGz" firstAttribute="top" secondItem="C9G-TS-SIR" secondAttribute="bottom" id="hKU-ad-NnV"/>
                             <constraint firstItem="Xqr-LA-GON" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="iSJ-e0-70b"/>
                             <constraint firstItem="g7x-Ia-FGz" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="j3p-iM-1k9"/>
+                            <constraint firstItem="C9G-TS-SIR" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="o3R-n4-562"/>
                             <constraint firstItem="g7x-Ia-FGz" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" constant="-40" id="phk-jK-eoz"/>
+                            <constraint firstItem="C9G-TS-SIR" firstAttribute="top" secondItem="Xqr-LA-GON" secondAttribute="bottom" id="sz4-NA-GSf"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="cnsTableBottom" destination="phk-jK-eoz" id="1rx-k1-AcV"/>
                         <outlet property="vwActivityIndicator" destination="pbi-bB-cm0" id="7U9-DG-mmV"/>
+                        <outlet property="vwCollection" destination="C9G-TS-SIR" id="C9q-iW-qZ5"/>
                         <outlet property="vwSearch" destination="Xqr-LA-GON" id="y7T-ZI-umV"/>
                         <outlet property="vwTable" destination="g7x-Ia-FGz" id="bwe-uI-8GP"/>
                     </connections>
