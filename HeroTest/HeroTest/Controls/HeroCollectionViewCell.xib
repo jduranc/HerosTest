@@ -16,11 +16,17 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aEj-Pc-QiO" customClass="HeroPhotoView" customModule="HeroTest" customModuleProvider="target">
-                    <rect key="frame" x="8" y="8" width="184" height="184"/>
+                    <rect key="frame" x="24" y="8" width="152" height="152"/>
                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="aEj-Pc-QiO" secondAttribute="height" multiplier="1:1" id="cTj-Vo-Coi"/>
+                    </constraints>
                 </view>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5tG-Na-4h9">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="5tG-Na-4h9">
                     <rect key="frame" x="8" y="168" width="184" height="24"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="24" id="rm7-3G-Eb4"/>
+                    </constraints>
                     <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
@@ -36,15 +42,14 @@
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
+                <constraint firstItem="5tG-Na-4h9" firstAttribute="top" secondItem="aEj-Pc-QiO" secondAttribute="bottom" constant="8" symbolic="YES" id="89v-d3-H2p"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="5tG-Na-4h9" secondAttribute="trailing" constant="8" id="Bci-2E-HHK"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="GnO-pc-KM1" secondAttribute="trailing" id="K4s-nH-LAf"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="5tG-Na-4h9" secondAttribute="bottom" constant="8" id="YM5-he-yKO"/>
                 <constraint firstItem="aEj-Pc-QiO" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="8" id="aO0-Lq-TCR"/>
                 <constraint firstItem="5tG-Na-4h9" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="8" id="fEd-Fb-vGP"/>
-                <constraint firstItem="aEj-Pc-QiO" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="8" id="kTb-nJ-RBy"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="aEj-Pc-QiO" secondAttribute="bottom" constant="8" id="s4M-C8-4uY"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="aEj-Pc-QiO" secondAttribute="trailing" constant="8" id="v5v-B8-oLd"/>
+                <constraint firstItem="aEj-Pc-QiO" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="tIs-CF-JXF"/>
                 <constraint firstItem="GnO-pc-KM1" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="xWG-VE-0hY"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="5tG-Na-4h9" secondAttribute="bottom" constant="8" id="y3H-Mz-aNP"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>

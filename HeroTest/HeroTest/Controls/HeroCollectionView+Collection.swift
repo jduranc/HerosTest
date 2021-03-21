@@ -26,8 +26,6 @@ extension HeroCollectionView: UICollectionViewDelegate, UICollectionViewDataSour
 		
 		if let cell = self.vwCollection.dequeueReusableCell(withReuseIdentifier: "heroCell", for: indexPath) as? HeroCollectionViewCell {
 			cell.model = self.data[indexPath.row]
-//			cell.heroID = "\(self.heroBaseName)_cell_\(model.mode.rawValue)_\(indexPath.row)"
-//			cell.prepareForHero(sufix: cell.heroID)
 			return cell
 		}
 		
@@ -38,23 +36,20 @@ extension HeroCollectionView: UICollectionViewDelegate, UICollectionViewDataSour
 		
 		let count = self.data.count
 		
-		var low : CGFloat = 15.0
-		var high : CGFloat = 30.0
+		let low : CGFloat = 15.0
+		let high : CGFloat = 30.0
 		
 		var spacing : CGFloat = 0.0
 		if let layout = self.vwCollection.collectionViewLayout as? UICollectionViewFlowLayout {
 			spacing = (count <= 1) ? 0.0 : (count == 2) ? high : low
 			layout.minimumInteritemSpacing = spacing
 			layout.minimumLineSpacing = spacing
-//			layout.invalidateLayout()
 		}
 		
 		spacing = CGFloat((count - 1)) * spacing
 		let size = (CGFloat(count) * (cellSize.width)) + spacing
 		
 		let width = self.vwCollection.frame.size.width
-//		let height = self.vwCollection.frame.size.height
-//		print("width: \(width), height: \(height)")
 		
 		if size < width {
 			let inset = (width - size) / 2.0
@@ -66,6 +61,12 @@ extension HeroCollectionView: UICollectionViewDelegate, UICollectionViewDataSour
 
 	func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
 		return CGSize(width: cellSize.width, height: cellSize.height)
+	}
+	
+	func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+		let model = self.data[indexPath.row]
+		let cell = self.vwCollection.cellForItem(at: indexPath) as? HeroCollectionViewCell
+		onSelectHandler?(model, cell)
 	}
 	
 }

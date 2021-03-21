@@ -25,6 +25,7 @@ class DetailsViewController: UIViewController {
 	@IBOutlet weak var lbBase: UILabel!
 	@IBOutlet weak var btClose: UIButton!
 	@IBOutlet weak var vwChart: BarChartView!
+	@IBOutlet weak var vwCollection: HeroCollectionView!
 	
 	public var model : HeroViewModel!
 	public var network : Network!
@@ -38,7 +39,8 @@ class DetailsViewController: UIViewController {
 		self.configureHero()
 		self.configureChart()
 		
-		update()
+		self.update()
+		self.loadRandom()
     }
     
 	func update() {
@@ -53,17 +55,37 @@ class DetailsViewController: UIViewController {
 		
 		self.lbOcupation.text = model.occupation
 		self.lbBase.text = model.base
-		
-		if let local = model.localImage {
+
+		self.vwFrame.model = self.model
+	}
+	
+	/**
+	Load a list of random Heros data for top collection
+	*/
+	func loadRandom() {
+		DispatchQueue.global(qos: .background).async {
 			
-			self.vwFrame.load(url: local, time: 0)
-			
-//// TODO: validate image is actually downloaded
-//			} else if let url = model.image {
-//				self.imPicture.alpha = 0
-//				self.downloadImage(url: url)
-//			} else {
-//				self.imPicture.alpha = 1
+			self.network.getRandomHeros(count: 10, handler: { [weak self] (data, error) in
+				guard let self = self else {
+					return
+				}
+				
+				if error != nil || data == nil || data?.count == 0 {
+					//retry
+					self.loadRandom()
+					return
+				}
+				
+				var models = [HeroViewModel]()
+				for item in data! {
+					let model = HeroViewModel(model: item)
+					models.append(model)
+				}
+				
+				DispatchQueue.main.async {
+					self.vwCollection.data = models
+				}
+			})
 		}
 	}
 

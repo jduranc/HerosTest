@@ -53,7 +53,7 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
 		//do not apply load data if displaying search items
 		if self.searchItems.count == 0 {
 			//call load next page if about display last row
-			if indexPath.row == self.data.count - 1 && !self.isLoading {
+			if indexPath.row == self.data.count - 2 && !self.isLoading {
 				self.loadData(page: self.currentPage + 1)
 			}
 		}
@@ -71,18 +71,26 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
 		} else {
 			model = self.data[indexPath.row]
 		}
-
-		let control = DetailsViewController.viewController()
-		control.model = model
-		control.modalPresentationStyle = .fullScreen
 		
 		if let cell = self.vwTable.cellForRow(at: indexPath) as? HeroTableViewCell {
-			if lastHeroCell != nil {
-				lastHeroCell?.configureHero(enabled: false)
-			}
+			
+			//disable previous cells
+			lastHeroCollectionCell?.configureHero(enabled: false)
+			lastHeroTableCell?.configureHero(enabled: false)
+			lastHeroTableCell = cell
+			
 			cell.configureHero(enabled: true)
-			lastHeroCell = cell
 		}
+		
+		self.openDetails(model: model)
+	}
+	
+	public func openDetails(model: HeroViewModel) {
+		
+		let control = DetailsViewController.viewController()
+		control.model = model
+		control.network = self.network
+		control.modalPresentationStyle = .fullScreen
 		
 		self.present(control, animated: true, completion: nil)
 	}

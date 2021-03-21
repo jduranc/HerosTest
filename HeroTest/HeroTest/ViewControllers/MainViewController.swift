@@ -13,6 +13,7 @@ class MainViewController: UIViewController {
 	@IBOutlet weak var cnsTableBottom: NSLayoutConstraint!
 	@IBOutlet weak var vwActivityIndicator: UIActivityIndicatorView!
 	@IBOutlet weak var vwSearch: UISearchBar!
+	@IBOutlet weak var vwCollection: HeroCollectionView!
 	
 	public var data = [HeroViewModel]()
 	public var searchItems = [HeroViewModel]()
@@ -21,7 +22,8 @@ class MainViewController: UIViewController {
 	public var isLoading = true
 	
 	/// Reference to last HeroCell configurated to disable the effect
-	public weak var lastHeroCell : HeroTableViewCell?
+	public weak var lastHeroTableCell : HeroTableViewCell?
+	public weak var lastHeroCollectionCell : HeroCollectionViewCell?
 	//timer for search
 	public var timer: Timer?
 	
@@ -32,6 +34,49 @@ class MainViewController: UIViewController {
 		self.configureTableView()
 		self.configureSearchBar()
 		self.loadData()
+		
+		self.loadRandom()
+		self.vwCollection.onSelectHandler = { [weak self] model, cell in
+			guard let self = self, let model = model else { return }
+			
+			//disable previous cells
+			self.lastHeroTableCell?.configureHero(enabled: false)
+			self.lastHeroCollectionCell?.configureHero(enabled: false)
+			self.lastHeroCollectionCell = cell
+			
+			cell?.configureHero(enabled: true)
+			self.openDetails(model: model)
+		}
+	}
+	
+	/**
+	Load a list of random Heros data for top collection
+	*/
+	func loadRandom() {
+		DispatchQueue.global(qos: .background).async {
+			
+			self.network.getRandomHeros(count: 10, handler: { [weak self] (data, error) in
+				guard let self = self else {
+					return
+				}
+				
+				if error != nil || data == nil || data?.count == 0 {
+					//retry
+					self.loadRandom()
+					return
+				}
+				
+				var models = [HeroViewModel]()
+				for item in data! {
+					let model = HeroViewModel(model: item)
+					models.append(model)
+				}
+				
+				DispatchQueue.main.async {
+					self.vwCollection.data = models
+				}
+			})
+		}
 	}
 	
 	/**
@@ -58,10 +103,13 @@ class MainViewController: UIViewController {
 				//check for error
 				if error != nil || data == nil || data?.count == 0 {
 					
-					self.showAlert(message: "Verifique su conexion a internet.", title: "Error") { (action) in
-						if self.data.count == 0 {
-							self.loadData()
-						}
+//					self.showAlert(message: "Verifique su conexion a internet.", title: "Error") { (action) in
+//						if self.data.count == 0 {
+//							self.loadData()
+//						}
+//					}
+					if self.data.count == 0 {
+						self.loadData()
 					}
 					return
 				}

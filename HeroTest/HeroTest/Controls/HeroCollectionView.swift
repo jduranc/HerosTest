@@ -18,6 +18,9 @@ class HeroCollectionView: UIView {
 		}
 	}
 	
+	/// Handler for selection on cells
+	public var onSelectHandler : ((HeroViewModel?, HeroCollectionViewCell?)->Void)?
+	
 	/// default size for cell
 	let cellSize = CGSize(width: 100, height: 100)
 	
@@ -35,6 +38,10 @@ class HeroCollectionView: UIView {
 	Perform the setup for loading the NIB and attaching to the owner view.
 	*/
 	private func setupNib() {
+		#if TARGET_INTERFACE_BUILDER
+		self.backgroundColor = .red
+		return
+		#endif
 		
 		Bundle.main.loadNibNamed("HeroCollectionView", owner: self, options: nil)
 		addSubview(self.contentView)
