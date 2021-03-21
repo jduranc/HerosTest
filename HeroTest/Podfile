@@ -8,6 +8,7 @@ target 'HeroTest' do
   # Pods for HeroTest
   pod 'Hero'
   pod 'Charts'
+  pod 'SDWebImage'
 
   target 'HeroTestTests' do
     inherit! :search_paths

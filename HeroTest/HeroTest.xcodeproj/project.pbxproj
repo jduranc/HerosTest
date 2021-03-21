@@ -15,6 +15,7 @@
 		F15E38412605B6370038E195 /* HeroCollectionView+Collection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F15E38402605B6360038E195 /* HeroCollectionView+Collection.swift */; };
 		F15E38462605B6770038E195 /* HeroCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F15E38452605B6770038E195 /* HeroCollectionViewCell.xib */; };
 		F15E384B2605B6EE0038E195 /* HeroCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F15E384A2605B6EE0038E195 /* HeroCollectionViewCell.swift */; };
+		F15E476A2606DDCE00BB0717 /* HeroCollectionViewCell+Hero.swift in Sources */ = {isa = PBXBuildFile; fileRef = F15E47692606DDCE00BB0717 /* HeroCollectionViewCell+Hero.swift */; };
 		F161579F25F711E900AC9AB4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F161579E25F711E900AC9AB4 /* AppDelegate.swift */; };
 		F16157A125F711E900AC9AB4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16157A025F711E900AC9AB4 /* SceneDelegate.swift */; };
 		F16157A325F711E900AC9AB4 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16157A225F711E900AC9AB4 /* MainViewController.swift */; };
@@ -33,7 +34,6 @@
 		F18F9B3B260573BE0038A9E9 /* HeroPhotoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F18F9B3A260573BE0038A9E9 /* HeroPhotoView.xib */; };
 		F18F9B402605741E0038A9E9 /* HeroPhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F18F9B3F2605741E0038A9E9 /* HeroPhotoView.swift */; };
 		F1A463BB25F7E7E100D0A6B1 /* Network+Hero.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A463BA25F7E7E100D0A6B1 /* Network+Hero.swift */; };
-		F1A463C325F7ED5100D0A6B1 /* HeroTableViewCell+Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A463C225F7ED5100D0A6B1 /* HeroTableViewCell+Image.swift */; };
 		F1A463CC25F7F91A00D0A6B1 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A463CB25F7F91A00D0A6B1 /* DetailsViewController.swift */; };
 		F1A463D125F8261D00D0A6B1 /* UIImageView+LoadURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A463D025F8261D00D0A6B1 /* UIImageView+LoadURL.swift */; };
 		F1A463E325F850ED00D0A6B1 /* MainViewController+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A463E225F850ED00D0A6B1 /* MainViewController+TableView.swift */; };
@@ -81,6 +81,7 @@
 		F15E38402605B6360038E195 /* HeroCollectionView+Collection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HeroCollectionView+Collection.swift"; sourceTree = "<group>"; };
 		F15E38452605B6770038E195 /* HeroCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeroCollectionViewCell.xib; sourceTree = "<group>"; };
 		F15E384A2605B6EE0038E195 /* HeroCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroCollectionViewCell.swift; sourceTree = "<group>"; };
+		F15E47692606DDCE00BB0717 /* HeroCollectionViewCell+Hero.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HeroCollectionViewCell+Hero.swift"; sourceTree = "<group>"; };
 		F161579B25F711E900AC9AB4 /* HeroTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HeroTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F161579E25F711E900AC9AB4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F16157A025F711E900AC9AB4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -105,7 +106,6 @@
 		F18F9B3A260573BE0038A9E9 /* HeroPhotoView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeroPhotoView.xib; sourceTree = "<group>"; };
 		F18F9B3F2605741E0038A9E9 /* HeroPhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroPhotoView.swift; sourceTree = "<group>"; };
 		F1A463BA25F7E7E100D0A6B1 /* Network+Hero.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Network+Hero.swift"; sourceTree = "<group>"; };
-		F1A463C225F7ED5100D0A6B1 /* HeroTableViewCell+Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HeroTableViewCell+Image.swift"; sourceTree = "<group>"; };
 		F1A463CB25F7F91A00D0A6B1 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		F1A463D025F8261D00D0A6B1 /* UIImageView+LoadURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+LoadURL.swift"; sourceTree = "<group>"; };
 		F1A463E225F850ED00D0A6B1 /* MainViewController+TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainViewController+TableView.swift"; sourceTree = "<group>"; };
@@ -252,7 +252,6 @@
 			isa = PBXGroup;
 			children = (
 				F170150325F7422A006F9249 /* HeroTableViewCell.swift */,
-				F1A463C225F7ED5100D0A6B1 /* HeroTableViewCell+Image.swift */,
 				F1C7A90925F9444900396B60 /* HeroTableViewCell+Hero.swift */,
 				F18F9B3F2605741E0038A9E9 /* HeroPhotoView.swift */,
 				F18F9B3A260573BE0038A9E9 /* HeroPhotoView.xib */,
@@ -260,6 +259,7 @@
 				F15E38402605B6360038E195 /* HeroCollectionView+Collection.swift */,
 				F15E382E2605B0EF0038E195 /* HeroCollectionView.xib */,
 				F15E384A2605B6EE0038E195 /* HeroCollectionViewCell.swift */,
+				F15E47692606DDCE00BB0717 /* HeroCollectionViewCell+Hero.swift */,
 				F15E38452605B6770038E195 /* HeroCollectionViewCell.xib */,
 			);
 			path = Controls;
@@ -551,7 +551,6 @@
 				F1B08E3E25F71AF200AFF72E /* Network+Get.swift in Sources */,
 				F1C7A91225F9450200396B60 /* DetailsViewController+Hero.swift in Sources */,
 				F15E38412605B6370038E195 /* HeroCollectionView+Collection.swift in Sources */,
-				F1A463C325F7ED5100D0A6B1 /* HeroTableViewCell+Image.swift in Sources */,
 				F1A463BB25F7E7E100D0A6B1 /* Network+Hero.swift in Sources */,
 				F1B08E3925F719CC00AFF72E /* NetworkError.swift in Sources */,
 				F15E384B2605B6EE0038E195 /* HeroCollectionViewCell.swift in Sources */,
@@ -563,6 +562,7 @@
 				F1B08E3125F7189D00AFF72E /* Network.swift in Sources */,
 				F1C7A90A25F9444900396B60 /* HeroTableViewCell+Hero.swift in Sources */,
 				F15E38342605B1650038E195 /* HeroCollectionView.swift in Sources */,
+				F15E476A2606DDCE00BB0717 /* HeroCollectionViewCell+Hero.swift in Sources */,
 				F1A463CC25F7F91A00D0A6B1 /* DetailsViewController.swift in Sources */,
 				F16157A125F711E900AC9AB4 /* SceneDelegate.swift in Sources */,
 				F170150425F7422A006F9249 /* HeroTableViewCell.swift in Sources */,

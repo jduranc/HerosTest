@@ -6,11 +6,28 @@
 //
 
 import UIKit
+import SDWebImage
 
 class HeroPhotoView: UIView {
 
 	@IBOutlet var contentView: UIView?
 	@IBOutlet weak var imPhoto: UIImageView?
+	
+	var model : HeroViewModel! {
+		didSet {
+			
+			if let url = self.model.image {
+				self.imPhoto?.sd_setImage(with: url, placeholderImage: nil, options: .retryFailed) { [weak self] (image, error, _, url) in
+					guard let self = self else { return }
+					
+//					self.model.localImage = url
+					self.imPhoto?.alpha = 0
+					self.image = image
+					self.imPhoto?.fadeIn(time: 3)
+				}
+			}
+		}
+	}
 	
 	@IBInspectable var image : UIImage? {
 		didSet {
@@ -40,6 +57,12 @@ class HeroPhotoView: UIView {
 	Perform the setup for loading the NIB and attaching to the owner view.
 	*/
 	private func setupNib() {
+		
+		#if TARGET_INTERFACE_BUILDER
+		self.backgroundColor = .red
+		return
+		#endif
+
 		Bundle.main.loadNibNamed("HeroPhotoView", owner: self, options: nil)
 		addSubview(self.contentView!)
 		
@@ -67,25 +90,5 @@ class HeroPhotoView: UIView {
 		//set border and color
 		self.layer.borderWidth = 3
 		self.layer.borderColor = backcolor?.cgColor
-	}
-	
-	
-	/**
-	Perform load image from `URL`, then apply fadein effect
-	- Parameters:
-		- url: The url of the image.
-		- time: duration to appear, default value 1
-	*/
-	public func load(url: URL, time: Double = 1.0) {
-		
-		if let data = try? Data(contentsOf: url),
-		   let image = UIImage(data: data) {
-			
-			DispatchQueue.main.async {
-				self.imPhoto?.alpha = 0
-				self.image = image
-				self.imPhoto?.fadeIn(time: time)
-			}
-		}
 	}
 }

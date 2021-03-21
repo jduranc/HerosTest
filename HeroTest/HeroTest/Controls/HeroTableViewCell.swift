@@ -22,14 +22,7 @@ class HeroTableViewCell: UITableViewCell {
 			self.lbFullname.text = model.fullName
 			self.imIcon.image = model.icon
 			
-			//check for local downloaded image
-			if let local = model.localImage {
-				self.vwFrame.load(url: local)
-			
-			// try to download the remote image
-			} else if let url = model.image {
-				self.downloadImage(url: url)
-			}
+			self.vwFrame.model = self.model
 		}
 	}
 	

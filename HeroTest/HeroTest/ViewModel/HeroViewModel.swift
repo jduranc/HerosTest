@@ -15,7 +15,6 @@ class HeroViewModel: NSObject {
 	}
 	
 	var model : HeroModel!
-	var localImage : URL?
 	
 	/**
 	Init `HeroViewModel` with model reference.
@@ -58,11 +57,7 @@ class HeroViewModel: NSObject {
 	/// the URL to hero image if model url is valid, otherwise return nil
 	var image : URL? {
 		get {
-			
-			if let local = self.localImage {
-				return local
-				
-			} else if let path = model.image,
+			if let path = model.image,
 			   let url = URL(string: path) {
 				return url
 			}

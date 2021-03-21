@@ -16,9 +16,7 @@ class HeroCollectionViewCell: UICollectionViewCell {
 	var model : HeroViewModel? {
 		didSet {
 			
-			if let url = model?.localImage {
-				self.vwFrame.load(url: url)
-			}
+			self.vwFrame.model = self.model
 			
 			self.imIcon.image = self.model?.icon
 			self.lbName.text = self.model?.name
@@ -33,11 +31,6 @@ class HeroCollectionViewCell: UICollectionViewCell {
 	override func prepareForReuse() {
 		self.vwFrame.image = nil
 		self.imIcon.image = nil
+		self.configureHero(enabled: false)
 	}
-	
-//	func prepareForHero(sufix: String?) {
-//		let name = sufix ?? "_"
-//		self.vwFrame.prepareForHero(sufix: name)
-//	}
-	
 }
