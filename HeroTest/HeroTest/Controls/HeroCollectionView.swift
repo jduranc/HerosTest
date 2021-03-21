@@ -31,7 +31,9 @@ class HeroCollectionView: UIView {
 		self.setupNib()
 	}
 	
-	/// Perform the setup for loading the NIB and attaching to the owner view.
+	/**
+	Perform the setup for loading the NIB and attaching to the owner view.
+	*/
 	private func setupNib() {
 		
 		Bundle.main.loadNibNamed("HeroCollectionView", owner: self, options: nil)

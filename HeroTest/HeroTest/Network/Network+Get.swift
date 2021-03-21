@@ -27,7 +27,7 @@ extension Network {
 	}
 	
 	/**
-	Function to retrieve Heros data array for ids passed.
+	Function to retrieve Heros data array for the page passed.
 	- Parameters:
 		- page: Int value with current page to search.
 		- handler: Closure function to handle `ArrayDataHandler` the response of request.
@@ -45,33 +45,47 @@ extension Network {
 				return
 			}
 			
-			var items = [[String: AnyObject]]()
-			var requests = ids.count
+			self.getIdx(ids: ids, handler: handler)
+		}
+	}
+	
+	/**
+	Function to retrieve Heros data array for ids passed.
+	- Parameters:
+		- page: Int value with current page to search.
+		- handler: Closure function to handle `ArrayDataHandler` the response of request.
+	*/
+	public func getIdx(ids: [Int], handler: ArrayDataHandler) {
+		
+		var items = [[String: AnyObject]]()
+		var requests = ids.count
+		
+		
+		//TODO: hanlde errors
+		for id in ids {
 			
-			for id in ids {
+			self.getId(id: id) { (data, error) in
 				
-				self.getId(id: id) { (data, error) in
-					//sync the operations with counter and shared array results.
-					Mutex.synced(items) {
-						//reduce pending requests
-						requests -= 1
-						guard let data = data, data.count > 0 && error == nil else {
-							return
-						}
-						
-						let item = data
-						items.append(item)
+				//sync the operations with counter and shared array results.
+				Mutex.synced(items) {
+					//reduce pending requests
+					requests -= 1
+					guard let data = data, data.count > 0 && error == nil else {
+						return
 					}
+					
+					let item = data
+					items.append(item)
 				}
 			}
-			
-			//wait while pending requests
-			while(requests > 0) {
-				sleep(1)
-			}
-			
-			handler?(items, nil)
 		}
+		
+		//wait while pending requests
+		while(requests > 0) {
+			sleep(1)
+		}
+		
+		handler?(items, nil)
 	}
 	
 	/**

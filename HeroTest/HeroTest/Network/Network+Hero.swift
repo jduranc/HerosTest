@@ -44,4 +44,39 @@ extension Network {
 			handler?(items, nil)
 		}
 	}
+	
+	/**
+	Function to retrieve a random number of Heros.
+	- Parameters:
+		- count: number of random elements to retrieve for Heros
+		- handler: Closure function to handle `HeroArrayHandler` the response of request.
+	*/
+	public func getRandomHeros(count: Int, max: Int = 100, handler: HeroArrayHandler) {
+		
+		let ids = (1...count).map( {_ in Int.random(in: 1...max) })
+		
+		// retrieve array data for items
+		self.getIdx(ids: ids, handler: { (data, error) in
+			
+			if error != nil {
+				handler?(nil, error)
+				return
+			}
+			
+			guard let data = data, data.count > 0 else {
+				handler?(nil, NetworkError.NoDataResponse)
+				return
+			}
+			
+			//build HeroModel array with data received
+			var items = [HeroModel]()
+			for item in data {
+				if let model = HeroModel(data: item) {
+					items.append(model)
+				}
+			}
+			
+			handler?(items, nil)
+		})
+	}
 }
