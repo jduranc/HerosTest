@@ -10,8 +10,8 @@ extension HeroCollectionViewCell {
 	/**
 	Configure the views for hero animation
 	*/
-	public func configureHero(enabled: Bool) {
-		self.isHeroEnabled = enabled
+	public func configureHero() {
+		self.isHeroEnabled = false
 		
 		self.lbName.heroID = "name"
 		self.imIcon.heroID = "icon"

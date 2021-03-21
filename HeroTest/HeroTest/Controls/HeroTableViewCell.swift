@@ -30,6 +30,7 @@ class HeroTableViewCell: UITableViewCell {
         super.awakeFromNib()
 		
         // Initialization code
+		self.configureHero()
     }
 	
 	override func prepareForReuse() {
@@ -37,7 +38,6 @@ class HeroTableViewCell: UITableViewCell {
 		
 		self.lbName.text = nil
 		self.vwFrame.image = nil
-		
-		self.configureHero(enabled: false)
+		self.isHeroEnabled = false
 	}
 }

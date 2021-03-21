@@ -18,6 +18,7 @@ extension HeroCollectionView: UICollectionViewDelegate, UICollectionViewDataSour
 		self.vwCollection.delegate = self
 	}
 	
+	// MARK: - UICollectionViewDelegate, UICollectionViewDataSource
 	func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
 		return self.data != nil ? self.data.count : 0
 	}

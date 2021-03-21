@@ -23,6 +23,12 @@ class HeroCollectionViewCell: UICollectionViewCell {
 		}
 	}
 	
+	override func awakeFromNib() {
+		super.awakeFromNib()
+		self.configureHero()
+		
+	}
+	
 	override func layoutSubviews() {
 		super.layoutSubviews()
 		self.vwFrame.rounded()
@@ -31,6 +37,6 @@ class HeroCollectionViewCell: UICollectionViewCell {
 	override func prepareForReuse() {
 		self.vwFrame.image = nil
 		self.imIcon.image = nil
-		self.configureHero(enabled: false)
+		self.isHeroEnabled = false
 	}
 }

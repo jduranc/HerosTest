@@ -10,6 +10,7 @@ import Charts
 
 class DetailsViewController: UIViewController {
 
+	@IBOutlet weak var vwBackground: UIView!
 	@IBOutlet weak var vwFrame: HeroPhotoView!
 	@IBOutlet weak var lbName: UILabel!
 	
@@ -35,6 +36,8 @@ class DetailsViewController: UIViewController {
 
         // Do any additional setup after loading the view.
 		self.btClose.rounded()
+		self.vwBackground.roundedCorner(radius: 15)
+		self.vwBackground.backgroundColor = self.vwFrame.backgroundColor
 		
 		self.configureHero()
 		self.configureChart()

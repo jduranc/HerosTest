@@ -76,6 +76,9 @@
                                                 <constraint firstItem="KPs-O2-brn" firstAttribute="trailing" secondItem="kCU-GH-SgE" secondAttribute="trailingMargin" id="tcB-KR-is2"/>
                                                 <constraint firstItem="KPs-O2-brn" firstAttribute="top" secondItem="kCU-GH-SgE" secondAttribute="topMargin" id="uG3-IB-iSy"/>
                                             </constraints>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="frame"/>
+                                            </userDefinedRuntimeAttributes>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="imIcon" destination="KPs-O2-brn" id="3es-ZY-3kq"/>
@@ -143,7 +146,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="1130"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="W5C-LH-XnC">
-                                                <rect key="frame" x="8" y="8" width="398" height="1077"/>
+                                                <rect key="frame" x="8" y="8" width="398" height="1107"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ln0-wl-9Rg">
                                                         <rect key="frame" x="0.0" y="0.0" width="398" height="160"/>
@@ -163,7 +166,7 @@
                                                                 </constraints>
                                                             </view>
                                                         </subviews>
-                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                        <color key="backgroundColor" red="0.83741801979999997" green="0.83743780850000005" blue="0.83742713930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <constraints>
                                                             <constraint firstAttribute="trailing" secondItem="wVd-hU-jOC" secondAttribute="trailing" constant="8" id="VgY-K7-oQi"/>
                                                             <constraint firstItem="TU7-OQ-Eap" firstAttribute="centerX" secondItem="ln0-wl-9Rg" secondAttribute="centerX" id="hUX-Ra-E01"/>
@@ -172,6 +175,9 @@
                                                             <constraint firstItem="TU7-OQ-Eap" firstAttribute="top" secondItem="ln0-wl-9Rg" secondAttribute="top" id="sLS-4B-2y0"/>
                                                             <constraint firstAttribute="height" constant="160" id="tcb-Ep-VWT"/>
                                                         </constraints>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="frame"/>
+                                                        </userDefinedRuntimeAttributes>
                                                     </view>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ezQ-vP-uSq">
                                                         <rect key="frame" x="0.0" y="174" width="398" height="41"/>
@@ -293,9 +299,15 @@
                                                             <constraint firstAttribute="height" constant="280" id="zaa-VV-gca"/>
                                                         </constraints>
                                                     </view>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Otros Personajes:" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l7a-el-r9b">
+                                                        <rect key="frame" x="0.0" y="957" width="398" height="16"/>
+                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IeG-rh-8ol" customClass="HeroCollectionView" customModule="HeroTest" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="957" width="398" height="120"/>
-                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                        <rect key="frame" x="0.0" y="987" width="398" height="120"/>
+                                                        <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="120" id="g0F-md-tAU"/>
                                                         </constraints>
@@ -361,6 +373,7 @@
                         <outlet property="lbOcupation" destination="LZx-yk-aqb" id="aKx-fF-FOY"/>
                         <outlet property="lbPlaceOfBirth" destination="CuA-Lt-OXW" id="CJ3-Ji-C9n"/>
                         <outlet property="lbPublisher" destination="CKy-G4-HTm" id="qlm-xb-n58"/>
+                        <outlet property="vwBackground" destination="ln0-wl-9Rg" id="SwO-FA-4YS"/>
                         <outlet property="vwChart" destination="97d-6Z-e6F" id="pml-Pa-icj"/>
                         <outlet property="vwCollection" destination="IeG-rh-8ol" id="3px-Gx-Nfq"/>
                         <outlet property="vwFrame" destination="TU7-OQ-Eap" id="83I-HC-KdP"/>

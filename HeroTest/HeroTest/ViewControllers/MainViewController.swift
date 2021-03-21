@@ -40,11 +40,11 @@ class MainViewController: UIViewController {
 			guard let self = self, let model = model else { return }
 			
 			//disable previous cells
-			self.lastHeroTableCell?.configureHero(enabled: false)
-			self.lastHeroCollectionCell?.configureHero(enabled: false)
+			self.lastHeroTableCell?.isHeroEnabled = false
+			self.lastHeroCollectionCell?.isHeroEnabled = false
 			self.lastHeroCollectionCell = cell
 			
-			cell?.configureHero(enabled: true)
+			cell?.isHeroEnabled = true
 			self.openDetails(model: model)
 		}
 	}

@@ -75,11 +75,11 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
 		if let cell = self.vwTable.cellForRow(at: indexPath) as? HeroTableViewCell {
 			
 			//disable previous cells
-			lastHeroCollectionCell?.configureHero(enabled: false)
-			lastHeroTableCell?.configureHero(enabled: false)
+			lastHeroCollectionCell?.isHeroEnabled = false
+			lastHeroTableCell?.isHeroEnabled = false
 			lastHeroTableCell = cell
 			
-			cell.configureHero(enabled: true)
+			cell.isHeroEnabled = true
 		}
 		
 		self.openDetails(model: model)
