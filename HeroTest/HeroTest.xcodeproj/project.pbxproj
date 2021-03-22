@@ -16,6 +16,10 @@
 		F15E38462605B6770038E195 /* HeroCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F15E38452605B6770038E195 /* HeroCollectionViewCell.xib */; };
 		F15E384B2605B6EE0038E195 /* HeroCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F15E384A2605B6EE0038E195 /* HeroCollectionViewCell.swift */; };
 		F15E476A2606DDCE00BB0717 /* HeroCollectionViewCell+Hero.swift in Sources */ = {isa = PBXBuildFile; fileRef = F15E47692606DDCE00BB0717 /* HeroCollectionViewCell+Hero.swift */; };
+		F15E47832606F19400BB0717 /* PageDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F15E47822606F19400BB0717 /* PageDataController.swift */; };
+		F15E47882606FB1A00BB0717 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F15E47872606FB1A00BB0717 /* DataController.swift */; };
+		F15E47932606FC9B00BB0717 /* SearchDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F15E47922606FC9B00BB0717 /* SearchDataController.swift */; };
+		F15E479826081DD000BB0717 /* RandomDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F15E479726081DD000BB0717 /* RandomDataController.swift */; };
 		F161579F25F711E900AC9AB4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F161579E25F711E900AC9AB4 /* AppDelegate.swift */; };
 		F16157A125F711E900AC9AB4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16157A025F711E900AC9AB4 /* SceneDelegate.swift */; };
 		F16157A325F711E900AC9AB4 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16157A225F711E900AC9AB4 /* MainViewController.swift */; };
@@ -82,6 +86,10 @@
 		F15E38452605B6770038E195 /* HeroCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeroCollectionViewCell.xib; sourceTree = "<group>"; };
 		F15E384A2605B6EE0038E195 /* HeroCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroCollectionViewCell.swift; sourceTree = "<group>"; };
 		F15E47692606DDCE00BB0717 /* HeroCollectionViewCell+Hero.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HeroCollectionViewCell+Hero.swift"; sourceTree = "<group>"; };
+		F15E47822606F19400BB0717 /* PageDataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageDataController.swift; sourceTree = "<group>"; };
+		F15E47872606FB1A00BB0717 /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
+		F15E47922606FC9B00BB0717 /* SearchDataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDataController.swift; sourceTree = "<group>"; };
+		F15E479726081DD000BB0717 /* RandomDataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomDataController.swift; sourceTree = "<group>"; };
 		F161579B25F711E900AC9AB4 /* HeroTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HeroTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F161579E25F711E900AC9AB4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F16157A025F711E900AC9AB4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -172,6 +180,17 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		F15E47812606F17E00BB0717 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				F15E47872606FB1A00BB0717 /* DataController.swift */,
+				F15E47822606F19400BB0717 /* PageDataController.swift */,
+				F15E47922606FC9B00BB0717 /* SearchDataController.swift */,
+				F15E479726081DD000BB0717 /* RandomDataController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		F161579225F711E900AC9AB4 = {
 			isa = PBXGroup;
 			children = (
@@ -197,6 +216,7 @@
 		F161579D25F711E900AC9AB4 /* HeroTest */ = {
 			isa = PBXGroup;
 			children = (
+				F15E47812606F17E00BB0717 /* Controller */,
 				F1A463CA25F7F90100D0A6B1 /* ViewControllers */,
 				F170150225F7420C006F9249 /* Controls */,
 				F17014F325F73AF0006F9249 /* ViewModel */,
@@ -554,6 +574,7 @@
 				F1A463BB25F7E7E100D0A6B1 /* Network+Hero.swift in Sources */,
 				F1B08E3925F719CC00AFF72E /* NetworkError.swift in Sources */,
 				F15E384B2605B6EE0038E195 /* HeroCollectionViewCell.swift in Sources */,
+				F15E47832606F19400BB0717 /* PageDataController.swift in Sources */,
 				F17014FE25F73CC9006F9249 /* HeroViewModel.swift in Sources */,
 				F1A463E325F850ED00D0A6B1 /* MainViewController+TableView.swift in Sources */,
 				F18F9B402605741E0038A9E9 /* HeroPhotoView.swift in Sources */,
@@ -561,13 +582,16 @@
 				F1E42CCA25F73043005CA293 /* Mutex.swift in Sources */,
 				F1B08E3125F7189D00AFF72E /* Network.swift in Sources */,
 				F1C7A90A25F9444900396B60 /* HeroTableViewCell+Hero.swift in Sources */,
+				F15E47932606FC9B00BB0717 /* SearchDataController.swift in Sources */,
 				F15E38342605B1650038E195 /* HeroCollectionView.swift in Sources */,
 				F15E476A2606DDCE00BB0717 /* HeroCollectionViewCell+Hero.swift in Sources */,
 				F1A463CC25F7F91A00D0A6B1 /* DetailsViewController.swift in Sources */,
+				F15E479826081DD000BB0717 /* RandomDataController.swift in Sources */,
 				F16157A125F711E900AC9AB4 /* SceneDelegate.swift in Sources */,
 				F170150425F7422A006F9249 /* HeroTableViewCell.swift in Sources */,
 				F1C7A91F25F94C4300396B60 /* DetailsViewController+Chart.swift in Sources */,
 				F1A463FC25F85EC200D0A6B1 /* MainViewController+SearchBar.swift in Sources */,
+				F15E47882606FB1A00BB0717 /* DataController.swift in Sources */,
 				F170150C25F7456B006F9249 /* UIView+Rounded.swift in Sources */,
 				F1A463D125F8261D00D0A6B1 /* UIImageView+LoadURL.swift in Sources */,
 				F170151925F74E5A006F9249 /* UIView+Fade.swift in Sources */,

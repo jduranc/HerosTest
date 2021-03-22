@@ -15,11 +15,10 @@ class MainViewController: UIViewController {
 	@IBOutlet weak var vwSearch: UISearchBar!
 	@IBOutlet weak var vwCollection: HeroCollectionView!
 	
-	public var data = [HeroViewModel]()
-	public var searchItems = [HeroViewModel]()
 	public var network = Network()
-	public var currentPage = 0
-	public var isLoading = true
+	public var pageControl : PageDataController!
+	public var searchControl : SearchDataController!
+	public var randomControl : RandomDataController!
 	
 	/// Reference to last HeroCell configurated to disable the effect
 	public weak var lastHeroTableCell : HeroTableViewCell?
@@ -33,9 +32,14 @@ class MainViewController: UIViewController {
 		// Do any additional setup after loading the view.
 		self.configureTableView()
 		self.configureSearchBar()
-		self.loadData()
 		
+		self.pageControl = PageDataController(network: self.network)
+		self.searchControl = SearchDataController(network: self.network)
+		self.randomControl = RandomDataController(network: self.network)
+		
+		self.loadData()
 		self.loadRandom()
+		
 		self.vwCollection.onSelectHandler = { [weak self] model, cell in
 			guard let self = self, let model = model else { return }
 			
@@ -53,29 +57,13 @@ class MainViewController: UIViewController {
 	Load a list of random Heros data for top collection
 	*/
 	func loadRandom() {
-		DispatchQueue.global(qos: .background).async {
+		
+		self.randomControl.load(count: 10) {
+			//do nothing
+			//TODO: implement activity indicator when loading random elements.
 			
-			self.network.getRandomHeros(count: 10, handler: { [weak self] (data, error) in
-				guard let self = self else {
-					return
-				}
-				
-				if error != nil || data == nil || data?.count == 0 {
-					//retry
-					self.loadRandom()
-					return
-				}
-				
-				var models = [HeroViewModel]()
-				for item in data! {
-					let model = HeroViewModel(model: item)
-					models.append(model)
-				}
-				
-				DispatchQueue.main.async {
-					self.vwCollection.data = models
-				}
-			})
+		} onComplete: { (_) in
+			self.vwCollection.data = self.randomControl.data
 		}
 	}
 	
@@ -86,49 +74,24 @@ class MainViewController: UIViewController {
 	*/
 	func loadData(page: Int = 0) {
 		
-		self.isLoading = true
-		self.currentPage = page
-		self.showActivity(visible: true)
-		
-		DispatchQueue.global(qos: .background).async {
+		self.pageControl.load(page: page) { [weak self] in
+			self?.showActivity(visible: true)
 			
-			self.network.getHero(page: page) { [weak self] (data, error) in
-				
-				guard let self = self else {
-					return
-				}
-				
-				self.showActivity(visible: false)
-				
-				//check for error
-				if error != nil || data == nil || data?.count == 0 {
-					
-//					self.showAlert(message: "Verifique su conexion a internet.", title: "Error") { (action) in
-//						if self.data.count == 0 {
-//							self.loadData()
-//						}
-//					}
-					if self.data.count == 0 {
-						self.loadData()
-					}
-					return
-				}
-								
-				//build the new rows indexs
-				var newIdxs = [IndexPath]()
-				for item in data! {
-					let model = HeroViewModel(model: item)
-					self.data.append(model)
-					newIdxs.append(IndexPath(row: self.data.count - 1, section: 0))
-				}
+		} onComplete: { [weak self] (newIdx) in
+			guard let self = self, let newIdx = newIdx  else { return }
 			
-				//update current table rows
-				DispatchQueue.main.async {
-					self.vwTable.insertRows(at: newIdxs, with: .fade)
-					self.showActivity(visible: false)
-					self.isLoading = false
-				}
-			}
+			self.vwTable.insertRows(at: newIdx, with: .fade)
+			self.showActivity(visible: false)
+			
+		} onError: { [weak self] (error) in
+			guard let self = self else { return }
+			
+			self.showActivity(visible: false)
+//			self.showAlert(message: "Verifique su conexion a internet.", title: "Error") { (action) in
+////				if self.data.count == 0 {
+////					self.loadData()
+////				}
+//			}
 		}
 	}
 		

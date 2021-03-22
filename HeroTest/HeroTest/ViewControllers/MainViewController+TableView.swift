@@ -17,20 +17,20 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
 	// MARK: - UITableViewDataSource & UITableViewDelegate
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 		
-		if self.searchItems.count > 0 {
-			return self.searchItems.count
+		if self.searchControl.data.count > 0 {
+			return self.searchControl.data.count
 		}
-		return self.data.count
+		return self.pageControl.data.count
 	}
 	
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		
 		var model: HeroViewModel! = nil
 		
-		if self.searchItems.count > 0 {
-			model = self.searchItems[indexPath.row]
+		if self.searchControl.data.count > 0 {
+			model = self.searchControl.data[indexPath.row]
 		} else {
-			model = self.data[indexPath.row]
+			model = self.pageControl.data[indexPath.row]
 		}
 		
 		
@@ -51,10 +51,10 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
 	func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
 		
 		//do not apply load data if displaying search items
-		if self.searchItems.count == 0 {
+		if self.searchControl.data.count == 0 {
 			//call load next page if about display last row
-			if indexPath.row == self.data.count - 2 && !self.isLoading {
-				self.loadData(page: self.currentPage + 1)
+			if indexPath.row == self.pageControl.data.count - 2 && !self.pageControl.isBusy {
+				self.loadData(page: self.pageControl.page + 1)
 			}
 		}
 	}
@@ -66,10 +66,10 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
 		var model: HeroViewModel! = nil
 		
 		//select model from search or the main list
-		if self.searchItems.count > 0 {
-			model = self.searchItems[indexPath.row]
+		if self.searchControl.data.count > 0 {
+			model = self.searchControl.data[indexPath.row]
 		} else {
-			model = self.data[indexPath.row]
+			model = self.pageControl.data[indexPath.row]
 		}
 		
 		if let cell = self.vwTable.cellForRow(at: indexPath) as? HeroTableViewCell {

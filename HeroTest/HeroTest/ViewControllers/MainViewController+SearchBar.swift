@@ -26,7 +26,7 @@ extension MainViewController: UISearchBarDelegate {
 	*/
 	private func cancelSearch() {
 		
-		self.searchItems.removeAll()
+		self.searchControl.cancel()
 		
 		DispatchQueue.main.async {
 			self.vwTable.reloadData()
@@ -39,49 +39,28 @@ extension MainViewController: UISearchBarDelegate {
 		- text: the hero's name to search.
 	*/
 	@objc func search(text: String) {
+		if self.searchControl.isBusy { return }
 		
-		self.showActivity(visible: true)
-		
-		DispatchQueue.global(qos: .background).async {
+		self.searchControl.search(text: text) { [weak self] in
+			self?.showActivity(visible: true)
 			
-			self.network.search(text: text) { [weak self] (array, error) in
-				guard let self = self else {
-					return
-				}
-				
-				self.showActivity(visible: false)
-
-				//check for error
-				if error != nil {
-					var networkError = true
-					
-					//if error is no data, do no threat erro like network error
-					if let netErr = error as? NetworkError {
-						networkError = (netErr != .NoDataResponse)
-					}
-					
-					if networkError {
-						self.showAlert(message: "Verifique su conexion a internet.", title: "Error")
-						return
-					}
-				}
-				
-				if array == nil || array?.count == 0 {
-					self.showAlert(message: "No se encontraron resultados.", title: "Informacion")
-					return
-				}
-				
-				self.searchItems.removeAll()
-				
-				for item in array! {
-					let model = HeroViewModel(model: item)
-					self.searchItems.append(model)
-				}
-				
-				DispatchQueue.main.async {
-					self.vwTable.reloadData()
-				}
+		} onComplete: { [weak self] (newIdx) in
+			guard let self = self else { return	}
+			
+			self.showActivity(visible: false)
+			
+			if newIdx == nil || newIdx?.count == 0 {
+				self.showAlert(message: "No se encontraron resultados.", title: "Informacion")
+				return
 			}
+			
+			self.vwTable.reloadData()
+			
+		} onError: { [weak self] (error) in
+			guard let self = self else { return	}
+			
+			self.showActivity(visible: false)
+			self.showAlert(message: "Verifique su conexion a internet.", title: "Error")
 		}
 	}
 	
