@@ -78,12 +78,16 @@ class ListGridCollectionView: UICollectionView {
 		self.reloadItems(at: visibles)
 		
 		let layout = mode == .List ? self.listLayout : self.gridLayout
-		self.startInteractiveTransition(to: layout)
-		self.finishInteractiveTransition()
+//		self.startInteractiveTransition(to: layout)
 		
-		if let first = visibles.first {
-			self.scrollToItem(at: first, at: .top, animated: true)
+		
+		self.startInteractiveTransition(to: layout) { (_, _) in
+			if let first = visibles.first {
+				self.scrollToItem(at: first, at: .top, animated: true)
+			}
 		}
+		
+		self.finishInteractiveTransition()
 	}
 	
 	override func layoutSubviews() {
