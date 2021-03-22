@@ -12,6 +12,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HeroCollectionView" customModule="HeroTest" customModuleProvider="target">
             <connections>
                 <outlet property="contentView" destination="iN0-l3-epB" id="UjW-AS-jUu"/>
+                <outlet property="vwActivity" destination="cRy-N6-Puc" id="xkC-hO-XR8"/>
                 <outlet property="vwCollection" destination="e5n-Ve-DMP" id="7B7-aj-EnW"/>
             </connections>
         </placeholder>
@@ -30,11 +31,16 @@
                         <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                     </collectionViewFlowLayout>
                 </collectionView>
+                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="cRy-N6-Puc">
+                    <rect key="frame" x="188.5" y="50" width="37" height="37"/>
+                </activityIndicatorView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstItem="e5n-Ve-DMP" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="25t-x9-CWJ"/>
+                <constraint firstItem="cRy-N6-Puc" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="9No-Px-xY2"/>
+                <constraint firstItem="cRy-N6-Puc" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="Fov-cd-56e"/>
                 <constraint firstItem="e5n-Ve-DMP" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="dfz-ey-5oG"/>
                 <constraint firstItem="e5n-Ve-DMP" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="lbG-1U-5WB"/>
                 <constraint firstItem="e5n-Ve-DMP" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="xNN-Qz-SbF"/>

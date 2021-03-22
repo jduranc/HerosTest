@@ -16,6 +16,7 @@ class MainViewController: UIViewController {
 	@IBOutlet weak var vwActivityIndicator: UIActivityIndicatorView!
 	@IBOutlet weak var vwSearch: UISearchBar!
 	@IBOutlet weak var vwRandomHeros: HeroCollectionView!
+	@IBOutlet weak var btSwitch: UIButton!
 	
 	public var network = Network()
 	public var pageControl : PageDataController!
@@ -61,10 +62,10 @@ class MainViewController: UIViewController {
 	func loadRandom() {
 		
 		self.randomControl.load(count: 10) {
-			//do nothing
-			//TODO: implement activity indicator when loading random elements.
+			self.vwRandomHeros.showActivity = true
 			
 		} onComplete: { (_) in
+			self.vwRandomHeros.showActivity = false
 			self.vwRandomHeros.data = self.randomControl.data
 		}
 	}
@@ -155,8 +156,13 @@ class MainViewController: UIViewController {
 	}
 	
 	@IBAction func onClickSwitch(_ sender: Any) {
+		
 		let mode : ListGridCollectionView.Mode = self.vwCollection.mode == .List ? .Grid : .List
-		self.vwCollection.changeTo(mode: mode)
+		
+		if self.vwCollection.changeTo(mode: mode) {
+			let icon = self.vwCollection.mode == .List ? UIImage(systemName: "square.grid.2x2.fill") :  UIImage(systemName: "list.bullet")
+			btSwitch.setImage(icon, for: .normal)
+		}
 	}
 	
 }

@@ -43,7 +43,6 @@
 		F1A463BB25F7E7E100D0A6B1 /* Network+Hero.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A463BA25F7E7E100D0A6B1 /* Network+Hero.swift */; };
 		F1A463CC25F7F91A00D0A6B1 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A463CB25F7F91A00D0A6B1 /* DetailsViewController.swift */; };
 		F1A463D125F8261D00D0A6B1 /* UIImageView+LoadURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A463D025F8261D00D0A6B1 /* UIImageView+LoadURL.swift */; };
-		F1A463E325F850ED00D0A6B1 /* MainViewController+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A463E225F850ED00D0A6B1 /* MainViewController+TableView.swift */; };
 		F1A463F425F859E900D0A6B1 /* DetailsViewController+Storyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A463F325F859E900D0A6B1 /* DetailsViewController+Storyboard.swift */; };
 		F1A463FC25F85EC200D0A6B1 /* MainViewController+SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A463FB25F85EC200D0A6B1 /* MainViewController+SearchBar.swift */; };
 		F1A4640425F8620500D0A6B1 /* Network+Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A4640325F8620500D0A6B1 /* Network+Search.swift */; };
@@ -122,7 +121,6 @@
 		F1A463BA25F7E7E100D0A6B1 /* Network+Hero.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Network+Hero.swift"; sourceTree = "<group>"; };
 		F1A463CB25F7F91A00D0A6B1 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		F1A463D025F8261D00D0A6B1 /* UIImageView+LoadURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+LoadURL.swift"; sourceTree = "<group>"; };
-		F1A463E225F850ED00D0A6B1 /* MainViewController+TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainViewController+TableView.swift"; sourceTree = "<group>"; };
 		F1A463F325F859E900D0A6B1 /* DetailsViewController+Storyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DetailsViewController+Storyboard.swift"; sourceTree = "<group>"; };
 		F1A463FB25F85EC200D0A6B1 /* MainViewController+SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainViewController+SearchBar.swift"; sourceTree = "<group>"; };
 		F1A4640325F8620500D0A6B1 /* Network+Search.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Network+Search.swift"; sourceTree = "<group>"; };
@@ -297,7 +295,6 @@
 			isa = PBXGroup;
 			children = (
 				F16157A225F711E900AC9AB4 /* MainViewController.swift */,
-				F1A463E225F850ED00D0A6B1 /* MainViewController+TableView.swift */,
 				F1A463FB25F85EC200D0A6B1 /* MainViewController+SearchBar.swift */,
 				F15E47A52608289B00BB0717 /* MainViewController+CollectionView.swift */,
 				F1A463CB25F7F91A00D0A6B1 /* DetailsViewController.swift */,
@@ -588,7 +585,6 @@
 				F15E384B2605B6EE0038E195 /* HeroCollectionViewCell.swift in Sources */,
 				F15E47832606F19400BB0717 /* PageDataController.swift in Sources */,
 				F17014FE25F73CC9006F9249 /* HeroViewModel.swift in Sources */,
-				F1A463E325F850ED00D0A6B1 /* MainViewController+TableView.swift in Sources */,
 				F18F9B402605741E0038A9E9 /* HeroPhotoView.swift in Sources */,
 				F161579F25F711E900AC9AB4 /* AppDelegate.swift in Sources */,
 				F1E42CCA25F73043005CA293 /* Mutex.swift in Sources */,

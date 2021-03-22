@@ -11,7 +11,7 @@ import Charts
 extension DetailsViewController {
 	
 	/**
-	Configure the views for hero animation
+	Configure the chart view
 	*/
 	public func configureChart() {
 		

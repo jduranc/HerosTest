@@ -32,6 +32,8 @@ class ListGridCollectionView: UICollectionView {
 		}
 	}
 	
+	private var isBusy = false
+	
 	/// Specify the layout for items when in `Mode` is `List`
 	private var listLayout: UICollectionViewFlowLayout = {
 
@@ -67,19 +69,27 @@ class ListGridCollectionView: UICollectionView {
 		self.collectionViewLayout = self.listLayout
 	}
 	
+	override func layoutSubviews() {
+		super.layoutSubviews()
+		
+		//update the width for list items
+		self.listItemWidth = self.frame.width
+	}
 	
 	/**
 	Change the current mode for the collection, reloading the current visible cells.
 	*/
-	public func changeTo(mode: Mode) {
+	public func changeTo(mode: Mode) -> Bool {
+		
+		if self.isBusy { return false }
+		
+		self.isBusy = true
 		self.mode = mode
 		
 		let visibles =  self.indexPathsForVisibleItems
 		self.reloadItems(at: visibles)
 		
 		let layout = mode == .List ? self.listLayout : self.gridLayout
-//		self.startInteractiveTransition(to: layout)
-		
 		
 		self.startInteractiveTransition(to: layout) { (_, _) in
 			if let first = visibles.first {
@@ -88,12 +98,8 @@ class ListGridCollectionView: UICollectionView {
 		}
 		
 		self.finishInteractiveTransition()
-	}
-	
-	override func layoutSubviews() {
-		super.layoutSubviews()
+		self.isBusy = false
 		
-		//update the width for list items
-		self.listItemWidth = self.frame.width
+		return true
 	}
 }

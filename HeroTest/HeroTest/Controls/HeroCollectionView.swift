@@ -9,12 +9,24 @@ import UIKit
 
 class HeroCollectionView: UIView {
 
+	@IBOutlet weak var vwActivity: UIActivityIndicatorView!
 	@IBOutlet weak var vwCollection: UICollectionView!
 	@IBOutlet var contentView: UIView!
 	
 	var data : [HeroViewModel]! {
 		didSet {
 			self.vwCollection.reloadData()
+		}
+	}
+	
+	public var showActivity : Bool = false {
+		didSet {
+			if showActivity {
+				self.vwActivity.startAnimating()
+			} else {
+				self.vwActivity.stopAnimating()
+			}
+			self.vwActivity.isHidden = !showActivity
 		}
 	}
 	
