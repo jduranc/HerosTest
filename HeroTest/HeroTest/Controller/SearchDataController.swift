@@ -54,7 +54,7 @@ class SearchDataController : DataController {
 				if error != nil {
 					var networkError = true
 					
-					//if error is no data, do no threat erro like network error
+					//if error is no data, do no threat error like network error
 					if let netErr = error as? NetworkError {
 						networkError = (netErr != .NoDataResponse)
 					}
@@ -71,10 +71,14 @@ class SearchDataController : DataController {
 				
 				//build the new rows indexs
 				var newIdxs = [IndexPath]()
-				for item in data! {
-					let model = HeroViewModel(model: item)
-					self.data.append(model)
-					newIdxs.append(IndexPath(row: self.data.count - 1, section: 0))
+				
+				//if data found
+				if data != nil {
+					for item in data! {
+						let model = HeroViewModel(model: item)
+						self.data.append(model)
+						newIdxs.append(IndexPath(row: self.data.count - 1, section: 0))
+					}
 				}
 				
 				//call complete
