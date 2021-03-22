@@ -50,10 +50,11 @@ class PageDataController : DataController {
 					DispatchQueue.main.async {
 						onError?(error)
 					}
-
-					if self.data.count == 0 {
-						self.load(page: page, onStart: onStart, onComplete: onComplete, onError: onError)
-					}
+					
+//					// Do not retry by default, let the handler to call it
+//					if self.data.count == 0 {
+//						self.load(page: page, onStart: onStart, onComplete: onComplete, onError: onError)
+//					}
 					return
 				}
 								

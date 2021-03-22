@@ -82,7 +82,6 @@ class MainViewController: UIViewController {
 		} onComplete: { [weak self] (newIdx) in
 			guard let self = self, let newIdx = newIdx  else { return }
 			
-//			self.vwCollection.insertRows(at: newIdx, with: .fade)
 			self.vwCollection.insertItems(at: newIdx)
 			self.showActivity(visible: false)
 			
@@ -90,11 +89,11 @@ class MainViewController: UIViewController {
 			guard let self = self else { return }
 			
 			self.showActivity(visible: false)
-//			self.showAlert(message: "Verifique su conexion a internet.", title: "Error") { (action) in
-////				if self.data.count == 0 {
-////					self.loadData()
-////				}
-//			}
+			self.showAlert(message: "Verifique su conexion a internet.", title: "Error") { (action) in
+				if self.pageControl.data.count == 0 {
+					self.loadData()
+				}
+			}
 		}
 	}
 		
