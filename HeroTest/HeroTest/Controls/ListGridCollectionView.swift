@@ -95,11 +95,11 @@ class ListGridCollectionView: UICollectionView {
 			if let first = visibles.first {
 				self.scrollToItem(at: first, at: .top, animated: true)
 			}
+			
+			self.isBusy = false
 		}
-		
 		self.finishInteractiveTransition()
-		self.isBusy = false
-		
+
 		return true
 	}
 }

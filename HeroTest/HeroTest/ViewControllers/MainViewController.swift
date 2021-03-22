@@ -24,8 +24,8 @@ class MainViewController: UIViewController {
 	public var randomControl : RandomDataController!
 	
 	/// Reference to last HeroCell configurated to disable the effect
-	public weak var lastHeroTableCell : HeroTableViewCell?
 	public weak var lastHeroCollectionCell : HeroCollectionViewCell?
+	
 	//timer for search
 	public var timer: Timer?
 	
@@ -47,7 +47,6 @@ class MainViewController: UIViewController {
 			guard let self = self, let model = model else { return }
 			
 			//disable previous cells
-			self.lastHeroTableCell?.isHeroEnabled = false
 			self.lastHeroCollectionCell?.isHeroEnabled = false
 			self.lastHeroCollectionCell = cell
 			

@@ -30,6 +30,7 @@ class DetailsViewController: UIViewController {
 	
 	public var model : HeroViewModel!
 	public var network : Network!
+	private var randomControl : RandomDataController!
 	
 	override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,6 +44,8 @@ class DetailsViewController: UIViewController {
 		self.configureChart()
 		
 		self.update()
+		
+		self.randomControl = RandomDataController(network: self.network)
 		self.loadRandom()
     }
     
@@ -66,29 +69,12 @@ class DetailsViewController: UIViewController {
 	Load a list of random Heros data for top collection
 	*/
 	func loadRandom() {
-		DispatchQueue.global(qos: .background).async {
+		self.randomControl.load(count: 10) {
+			self.vwCollection.showActivity = true
 			
-			self.network.getRandomHeros(count: 10, handler: { [weak self] (data, error) in
-				guard let self = self else {
-					return
-				}
-				
-				if error != nil || data == nil || data?.count == 0 {
-					//retry
-					self.loadRandom()
-					return
-				}
-				
-				var models = [HeroViewModel]()
-				for item in data! {
-					let model = HeroViewModel(model: item)
-					models.append(model)
-				}
-				
-				DispatchQueue.main.async {
-					self.vwCollection.data = models
-				}
-			})
+		} onComplete: { (_) in
+			self.vwCollection.showActivity = false
+			self.vwCollection.data = self.randomControl.data
 		}
 	}
 
