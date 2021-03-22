@@ -20,6 +20,9 @@
 		F15E47882606FB1A00BB0717 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F15E47872606FB1A00BB0717 /* DataController.swift */; };
 		F15E47932606FC9B00BB0717 /* SearchDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F15E47922606FC9B00BB0717 /* SearchDataController.swift */; };
 		F15E479826081DD000BB0717 /* RandomDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F15E479726081DD000BB0717 /* RandomDataController.swift */; };
+		F15E47A62608289B00BB0717 /* MainViewController+CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F15E47A52608289B00BB0717 /* MainViewController+CollectionView.swift */; };
+		F15E47AE26082E6A00BB0717 /* ListGridCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F15E47AD26082E6A00BB0717 /* ListGridCollectionView.swift */; };
+		F15E47B326083B5000BB0717 /* HeroListCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F15E47B226083B5000BB0717 /* HeroListCollectionViewCell.xib */; };
 		F161579F25F711E900AC9AB4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F161579E25F711E900AC9AB4 /* AppDelegate.swift */; };
 		F16157A125F711E900AC9AB4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16157A025F711E900AC9AB4 /* SceneDelegate.swift */; };
 		F16157A325F711E900AC9AB4 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16157A225F711E900AC9AB4 /* MainViewController.swift */; };
@@ -90,6 +93,9 @@
 		F15E47872606FB1A00BB0717 /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 		F15E47922606FC9B00BB0717 /* SearchDataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDataController.swift; sourceTree = "<group>"; };
 		F15E479726081DD000BB0717 /* RandomDataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomDataController.swift; sourceTree = "<group>"; };
+		F15E47A52608289B00BB0717 /* MainViewController+CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainViewController+CollectionView.swift"; sourceTree = "<group>"; };
+		F15E47AD26082E6A00BB0717 /* ListGridCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListGridCollectionView.swift; sourceTree = "<group>"; };
+		F15E47B226083B5000BB0717 /* HeroListCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeroListCollectionViewCell.xib; sourceTree = "<group>"; };
 		F161579B25F711E900AC9AB4 /* HeroTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HeroTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F161579E25F711E900AC9AB4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F16157A025F711E900AC9AB4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -281,6 +287,8 @@
 				F15E384A2605B6EE0038E195 /* HeroCollectionViewCell.swift */,
 				F15E47692606DDCE00BB0717 /* HeroCollectionViewCell+Hero.swift */,
 				F15E38452605B6770038E195 /* HeroCollectionViewCell.xib */,
+				F15E47B226083B5000BB0717 /* HeroListCollectionViewCell.xib */,
+				F15E47AD26082E6A00BB0717 /* ListGridCollectionView.swift */,
 			);
 			path = Controls;
 			sourceTree = "<group>";
@@ -291,6 +299,7 @@
 				F16157A225F711E900AC9AB4 /* MainViewController.swift */,
 				F1A463E225F850ED00D0A6B1 /* MainViewController+TableView.swift */,
 				F1A463FB25F85EC200D0A6B1 /* MainViewController+SearchBar.swift */,
+				F15E47A52608289B00BB0717 /* MainViewController+CollectionView.swift */,
 				F1A463CB25F7F91A00D0A6B1 /* DetailsViewController.swift */,
 				F1A463F325F859E900D0A6B1 /* DetailsViewController+Storyboard.swift */,
 				F1C7A91125F9450200396B60 /* DetailsViewController+Hero.swift */,
@@ -433,6 +442,7 @@
 			files = (
 				F16157AB25F711EC00AC9AB4 /* LaunchScreen.storyboard in Resources */,
 				F18F9B3B260573BE0038A9E9 /* HeroPhotoView.xib in Resources */,
+				F15E47B326083B5000BB0717 /* HeroListCollectionViewCell.xib in Resources */,
 				F16157A825F711EC00AC9AB4 /* Assets.xcassets in Resources */,
 				F16157A625F711E900AC9AB4 /* Main.storyboard in Resources */,
 				F15E38462605B6770038E195 /* HeroCollectionViewCell.xib in Resources */,
@@ -570,9 +580,11 @@
 				F1A4640425F8620500D0A6B1 /* Network+Search.swift in Sources */,
 				F1B08E3E25F71AF200AFF72E /* Network+Get.swift in Sources */,
 				F1C7A91225F9450200396B60 /* DetailsViewController+Hero.swift in Sources */,
+				F15E47AE26082E6A00BB0717 /* ListGridCollectionView.swift in Sources */,
 				F15E38412605B6370038E195 /* HeroCollectionView+Collection.swift in Sources */,
 				F1A463BB25F7E7E100D0A6B1 /* Network+Hero.swift in Sources */,
 				F1B08E3925F719CC00AFF72E /* NetworkError.swift in Sources */,
+				F15E47A62608289B00BB0717 /* MainViewController+CollectionView.swift in Sources */,
 				F15E384B2605B6EE0038E195 /* HeroCollectionViewCell.swift in Sources */,
 				F15E47832606F19400BB0717 /* PageDataController.swift in Sources */,
 				F17014FE25F73CC9006F9249 /* HeroViewModel.swift in Sources */,

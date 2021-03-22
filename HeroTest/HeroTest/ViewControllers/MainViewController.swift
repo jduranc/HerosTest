@@ -9,11 +9,13 @@ import UIKit
 
 class MainViewController: UIViewController {
 
-	@IBOutlet weak var vwTable: UITableView!
+//	@IBOutlet weak var vwTable: UITableView!
+	
+	@IBOutlet weak var vwCollection: ListGridCollectionView!
 	@IBOutlet weak var cnsTableBottom: NSLayoutConstraint!
 	@IBOutlet weak var vwActivityIndicator: UIActivityIndicatorView!
 	@IBOutlet weak var vwSearch: UISearchBar!
-	@IBOutlet weak var vwCollection: HeroCollectionView!
+	@IBOutlet weak var vwRandomHeros: HeroCollectionView!
 	
 	public var network = Network()
 	public var pageControl : PageDataController!
@@ -30,7 +32,7 @@ class MainViewController: UIViewController {
 		super.viewDidLoad()
 		
 		// Do any additional setup after loading the view.
-		self.configureTableView()
+		self.configureCollection()
 		self.configureSearchBar()
 		
 		self.pageControl = PageDataController(network: self.network)
@@ -40,7 +42,7 @@ class MainViewController: UIViewController {
 		self.loadData()
 		self.loadRandom()
 		
-		self.vwCollection.onSelectHandler = { [weak self] model, cell in
+		self.vwRandomHeros.onSelectHandler = { [weak self] model, cell in
 			guard let self = self, let model = model else { return }
 			
 			//disable previous cells
@@ -63,7 +65,7 @@ class MainViewController: UIViewController {
 			//TODO: implement activity indicator when loading random elements.
 			
 		} onComplete: { (_) in
-			self.vwCollection.data = self.randomControl.data
+			self.vwRandomHeros.data = self.randomControl.data
 		}
 	}
 	
@@ -80,7 +82,8 @@ class MainViewController: UIViewController {
 		} onComplete: { [weak self] (newIdx) in
 			guard let self = self, let newIdx = newIdx  else { return }
 			
-			self.vwTable.insertRows(at: newIdx, with: .fade)
+//			self.vwCollection.insertRows(at: newIdx, with: .fade)
+			self.vwCollection.insertItems(at: newIdx)
 			self.showActivity(visible: false)
 			
 		} onError: { [weak self] (error) in
@@ -120,7 +123,7 @@ class MainViewController: UIViewController {
 		DispatchQueue.main.async {
 			var posX : CGFloat = 0.0
 			if visible {
-				posX = -40.0
+				posX = 40.0
 				self.vwActivityIndicator.fadeIn(time: 0.1)
 				self.vwActivityIndicator.startAnimating()
 			} else {
@@ -135,5 +138,26 @@ class MainViewController: UIViewController {
 			}
 		}
 	}
+	
+	/**
+	Open screen details with the information for given Hero.
+	- Parameters:
+		- model: Hero model to display
+	*/
+	public func openDetails(model: HeroViewModel) {
+		
+		let control = DetailsViewController.viewController()
+		control.model = model
+		control.network = self.network
+		control.modalPresentationStyle = .fullScreen
+		
+		self.present(control, animated: true, completion: nil)
+	}
+	
+	@IBAction func onClickSwitch(_ sender: Any) {
+		let mode : ListGridCollectionView.Mode = self.vwCollection.mode == .List ? .Grid : .List
+		self.vwCollection.changeTo(mode: mode)
+	}
+	
 }
 

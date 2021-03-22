@@ -29,7 +29,7 @@ extension MainViewController: UISearchBarDelegate {
 		self.searchControl.cancel()
 		
 		DispatchQueue.main.async {
-			self.vwTable.reloadData()
+			self.vwCollection.reloadData()
 		}
 	}
 	
@@ -54,7 +54,7 @@ extension MainViewController: UISearchBarDelegate {
 				return
 			}
 			
-			self.vwTable.reloadData()
+			self.vwCollection.reloadData()
 			
 		} onError: { [weak self] (error) in
 			guard let self = self else { return	}
@@ -97,16 +97,16 @@ extension MainViewController: UISearchBarDelegate {
 			let objSize = userInfo[UIResponder.keyboardFrameEndUserInfoKey],
 			let content = objSize as? CGRect {
 			
-			let currentInsets = self.vwTable.contentInset
+			let currentInsets = self.vwCollection.contentInset
 			let insets = UIEdgeInsets(top: currentInsets.top, left: currentInsets.left, bottom: content.size.height, right: currentInsets.right)
 			
-			self.vwTable.contentInset = insets
+			self.vwCollection.contentInset = insets
 		}
 	}
 	
 	@objc func onKeyboardHide(_ notification: Notification) {
-		let currentInsets = self.vwTable.contentInset
+		let currentInsets = self.vwCollection.contentInset
 		let insets = UIEdgeInsets(top: currentInsets.top, left: currentInsets.left, bottom: 0, right: currentInsets.right)
-		self.vwTable.contentInset = insets
+		self.vwCollection.contentInset = insets
 	}
 }

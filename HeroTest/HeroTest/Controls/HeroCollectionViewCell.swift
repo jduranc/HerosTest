@@ -12,6 +12,7 @@ class HeroCollectionViewCell: UICollectionViewCell {
 	@IBOutlet weak var lbName: UILabel!
 	@IBOutlet weak var vwFrame: HeroPhotoView!
 	@IBOutlet weak var imIcon: UIImageView!
+	@IBOutlet weak var lbFullname: UILabel?
 	
 	var model : HeroViewModel? {
 		didSet {
@@ -20,13 +21,13 @@ class HeroCollectionViewCell: UICollectionViewCell {
 			
 			self.imIcon.image = self.model?.icon
 			self.lbName.text = self.model?.name
+			self.lbFullname?.text = self.model?.fullName
 		}
 	}
 	
 	override func awakeFromNib() {
 		super.awakeFromNib()
 		self.configureHero()
-		
 	}
 	
 	override func layoutSubviews() {
