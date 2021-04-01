@@ -14,6 +14,12 @@ class HeroCollectionViewCell: UICollectionViewCell {
 	@IBOutlet weak var imIcon: UIImageView!
 	@IBOutlet weak var lbFullname: UILabel?
 	
+	@IBOutlet weak var cnsFrameSize: NSLayoutConstraint!
+	@IBOutlet weak var cnsIconSize: NSLayoutConstraint!
+	
+	@IBOutlet var cnsLayoutList: [NSLayoutConstraint]!
+	@IBOutlet var cnsLayoutGrid: [NSLayoutConstraint]!
+	
 	var model : HeroViewModel? {
 		didSet {
 			
@@ -23,6 +29,38 @@ class HeroCollectionViewCell: UICollectionViewCell {
 			self.lbName.text = self.model?.name
 			self.lbFullname?.text = self.model?.fullName
 		}
+	}
+	
+	func setMode(grid: Bool) {
+		
+		
+		if grid {
+			NSLayoutConstraint.deactivate(cnsLayoutList)
+			NSLayoutConstraint.activate(cnsLayoutGrid)
+		} else {
+			NSLayoutConstraint.deactivate(cnsLayoutGrid)
+			NSLayoutConstraint.activate(cnsLayoutList)
+		}
+		
+	
+		
+		if !grid {
+			self.cnsFrameSize.constant = 100
+		}
+		
+		self.lbFullname?.isHidden = grid
+		self.lbName.adjustsFontSizeToFitWidth = !grid
+		self.lbName.textAlignment = grid ? .center : .left
+		self.cnsIconSize.constant = grid ? 28 : 36
+		
+		if grid {
+			self.lbName.font = UIFont.preferredFont(forTextStyle: .title3)
+			self.lbName.numberOfLines = 2
+		} else {
+			self.lbName.font = UIFont.preferredFont(forTextStyle: .title1)
+			self.lbName.numberOfLines = 1
+		}
+		self.superview?.layoutIfNeeded()
 	}
 	
 	override func awakeFromNib() {

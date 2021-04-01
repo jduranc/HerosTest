@@ -10,11 +10,9 @@ import UIKit
 
 extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSource {
 
-	
-	
 	func configureCollection() {
-		let grid = UINib.init(nibName: "HeroCollectionViewCell", bundle: nil)
-		self.vwCollection.register(grid, forCellWithReuseIdentifier: "HeroGrid")
+//		let grid = UINib.init(nibName: "HeroCollectionViewCell", bundle: nil)
+//		self.vwCollection.register(grid, forCellWithReuseIdentifier: "HeroGrid")
 		
 		let row = UINib.init(nibName: "HeroListCollectionViewCell", bundle: nil)
 		self.vwCollection.register(row, forCellWithReuseIdentifier: "HeroRow")
@@ -43,9 +41,11 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
 			model = self.pageControl.data[indexPath.row]
 		}
 		
-		let id = self.vwCollection.mode == .Grid ? "HeroGrid" : "HeroRow"
+//		let id = self.vwCollection.mode == .Grid ? "HeroGrid" : "HeroRow"
+		let id = "HeroRow"
 		if let cell = self.vwCollection.dequeueReusableCell(withReuseIdentifier: id, for: indexPath) as? HeroCollectionViewCell {
 			cell.model = model
+			cell.setMode(grid: self.vwCollection.mode == .Grid)
 			return cell
 		}
 

@@ -16,5 +16,9 @@ extension HeroCollectionViewCell {
 		self.lbName.heroID = "name"
 		self.imIcon.heroID = "icon"
 		self.vwFrame.heroID = "picture"
+		
+		self.heroModifiers = [.cascade()]
+		self.imIcon.heroModifiers = [.arc(intensity: -0.85)]
+		self.vwFrame.heroModifiers = [.arc(intensity: 0.35)]
 	}
 }

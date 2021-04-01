@@ -86,16 +86,16 @@ class ListGridCollectionView: UICollectionView {
 		self.isBusy = true
 		self.mode = mode
 		
-		let visibles =  self.indexPathsForVisibleItems
-		self.reloadItems(at: visibles)
+		let visibles = self.visibleCells
+		for item in visibles {
+			if let hero = item as? HeroCollectionViewCell {
+				hero.setMode(grid: mode == .Grid)
+			}
+		}
 		
 		let layout = mode == .List ? self.listLayout : self.gridLayout
 		
-		self.startInteractiveTransition(to: layout) { (_, _) in
-			if let first = visibles.first {
-				self.scrollToItem(at: first, at: .top, animated: true)
-			}
-			
+		self.startInteractiveTransition(to: layout) { (_, _) in		
 			self.isBusy = false
 		}
 		self.finishInteractiveTransition()

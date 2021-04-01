@@ -20,5 +20,9 @@ extension DetailsViewController {
 //		self.lbFullname.heroID = "fullname"
 		self.imIcon.heroID = "icon"
 		self.vwFrame.heroID = "picture"
+		
+		self.view.heroModifiers = [.cascade()]
+		self.imIcon.heroModifiers = [.arc(intensity: 0.85), .rotate(1.5)]
+		self.vwFrame.heroModifiers = [.arc(intensity: -0.95)]
 	}
 }
