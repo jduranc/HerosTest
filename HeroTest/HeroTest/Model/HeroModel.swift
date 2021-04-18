@@ -13,6 +13,7 @@ class HeroModel: NSObject {
 	public var id: Int!
 	
 	/// Hero name
+	@Trim
 	public var name: String?
 	
 	/// Power status
@@ -28,6 +29,7 @@ class HeroModel: NSObject {
 	public var work: [String: String]?
 	
 	/// URL with the image of hero
+	@Trim
 	public var image: String?
 	
 	override init() {

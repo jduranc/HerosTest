@@ -31,6 +31,7 @@
 		F16157AB25F711EC00AC9AB4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F16157A925F711EC00AC9AB4 /* LaunchScreen.storyboard */; };
 		F16157B625F711EC00AC9AB4 /* HeroTestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16157B525F711EC00AC9AB4 /* HeroTestTests.swift */; };
 		F16157C125F711EC00AC9AB4 /* HeroTestUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16157C025F711EC00AC9AB4 /* HeroTestUITests.swift */; };
+		F165CFBE262BAF2700B9CB46 /* Trim.swift in Sources */ = {isa = PBXBuildFile; fileRef = F165CFBD262BAF2700B9CB46 /* Trim.swift */; };
 		F17014EB25F73957006F9249 /* NetworkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17014EA25F73957006F9249 /* NetworkTests.swift */; };
 		F17014F525F73AFF006F9249 /* HeroModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17014F425F73AFF006F9249 /* HeroModel.swift */; };
 		F17014FE25F73CC9006F9249 /* HeroViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17014FD25F73CC9006F9249 /* HeroViewModel.swift */; };
@@ -109,6 +110,7 @@
 		F16157BC25F711EC00AC9AB4 /* HeroTestUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HeroTestUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F16157C025F711EC00AC9AB4 /* HeroTestUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroTestUITests.swift; sourceTree = "<group>"; };
 		F16157C225F711EC00AC9AB4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F165CFBD262BAF2700B9CB46 /* Trim.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trim.swift; sourceTree = "<group>"; };
 		F17014EA25F73957006F9249 /* NetworkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkTests.swift; sourceTree = "<group>"; };
 		F17014F425F73AFF006F9249 /* HeroModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroModel.swift; sourceTree = "<group>"; };
 		F17014FD25F73CC9006F9249 /* HeroViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroViewModel.swift; sourceTree = "<group>"; };
@@ -220,6 +222,7 @@
 		F161579D25F711E900AC9AB4 /* HeroTest */ = {
 			isa = PBXGroup;
 			children = (
+				F165CFBC262BAF1100B9CB46 /* PropertyWrapper */,
 				F15E47812606F17E00BB0717 /* Controller */,
 				F1A463CA25F7F90100D0A6B1 /* ViewControllers */,
 				F170150225F7420C006F9249 /* Controls */,
@@ -254,6 +257,14 @@
 				F16157C225F711EC00AC9AB4 /* Info.plist */,
 			);
 			path = HeroTestUITests;
+			sourceTree = "<group>";
+		};
+		F165CFBC262BAF1100B9CB46 /* PropertyWrapper */ = {
+			isa = PBXGroup;
+			children = (
+				F165CFBD262BAF2700B9CB46 /* Trim.swift */,
+			);
+			path = PropertyWrapper;
 			sourceTree = "<group>";
 		};
 		F17014F225F73AE9006F9249 /* Model */ = {
@@ -604,6 +615,7 @@
 				F1A463D125F8261D00D0A6B1 /* UIImageView+LoadURL.swift in Sources */,
 				F170151925F74E5A006F9249 /* UIView+Fade.swift in Sources */,
 				F1A463F425F859E900D0A6B1 /* DetailsViewController+Storyboard.swift in Sources */,
+				F165CFBE262BAF2700B9CB46 /* Trim.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
